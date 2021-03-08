@@ -17,7 +17,7 @@
 </script>
 
 <svelte:head>
-	<title>Blog</title>
+	<title>Sounds</title>
 </svelte:head>
 
 <h1>Sounds</h1>
