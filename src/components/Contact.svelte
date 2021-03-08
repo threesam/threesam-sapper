@@ -1,4 +1,5 @@
 <script>
+  import {fade} from 'svelte/transition'
   let show = false
 </script>
 
@@ -6,6 +7,10 @@
   section {
     display: grid;
     place-content: center;
+  }
+
+  form {
+    text-align: left;
   }
 
   .show {
@@ -17,12 +22,12 @@
 </style>
 
 <section>
-  <div>
+  <div class="card">
     {#if !show}
     <h3 class:show={!show} on:click={() => show = true}>Contact</h3>
     {:else}
     <h3>Contact</h3>
-    <form name="contact" method="POST" data-netlify="true" netlify-honeypot=“bot-field”>
+    <form in:fade name="contact" method="POST" data-netlify="true" netlify-honeypot=“bot-field”>
       <input type="hidden" name="form-name" value="contact" /> 
       
       <div>

@@ -3,10 +3,13 @@
 </script>
 
 <style>
+	nav a  {
+		opacity: 0.7;
+	}
 	.active {
 		color: var(--textColor);
 		text-decoration: none;
-		text-shadow: 0 2px 5px var(--primary);
+		opacity: 1;
 	}
 </style>
 
