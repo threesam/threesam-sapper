@@ -34,11 +34,13 @@
 </style>
 
 <svelte:head>
-	<title>Blog</title>
+	<title>Sounds</title>
 </svelte:head>
 
 <h1>{song.title}</h1>
 
-<audio controls src={song.audio} />
+<audio controls src={song.audio}>
+  <track kind="captions">
+</audio>
 
 <img src={song.image} alt={song.alt} />

@@ -14,7 +14,6 @@
 
 <script lang="ts">
   export let projects
-  console.log(projects)
 </script>
 
 <svelte:head>
