@@ -2,31 +2,30 @@
   import client from "../../sanityClient";
 
   export async function preload() {
-    const query = /* groq */`*[_type == 'project']`
+    const query = /* groq */`*[_type == 'post']`
 		
-    const projects = await client
+    const posts = await client
       .fetch(query)
 			.catch((err) => this.error(500, err))
     
-    return {projects}
+    return {posts}
   }
 </script>
 
 <script lang="ts">
-  export let projects
 	import Container from '../../components/Container.svelte'
+  export let posts
 </script>
 
 <svelte:head>
-	<title>Projects</title>
+	<title>Posts</title>
 </svelte:head>
 
 <Container>
-	<h1>Projects</h1>
+	<h1>Recent Posts</h1>
 	<ul>
-		{#each projects as {slug, title}}
-			<li><a rel="prefetch" href="projects/{slug.current}">{title}</a></li>
+		{#each posts as post}
+			<li><a rel="prefetch" href="posts/{post.slug.current}">{post.title}</a></li>
 		{/each}
 	</ul>
 </Container>
-		

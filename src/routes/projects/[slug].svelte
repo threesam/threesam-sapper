@@ -24,21 +24,25 @@
 <script lang="ts">
   export let project
 
-  import BlockContent from '@movingbrands/svelte-portable-text'
-  import serializers from '../../components/serializers'
+  import Article from '../../components/Article.svelte'
 </script>
+
+<style>
+  p {
+    max-width: 30rem;
+    margin: 0 auto;
+  }
+</style>
 
 <svelte:head>
 	<title>Projects</title>
 </svelte:head>
 
-<h1>{project.title}</h1>
-
-<div>
-  <p>{project.description} <br> <a href={project.href}>visit site</a></p>
-  <img src={project.image} alt={project.alt} />
-</div>
-
-<article>
-  <BlockContent blocks={project.caseStudy} {serializers} />
-</article>
+<Article data={project}>
+  <div slot="hero">
+    <p>{project.description}</p>
+    <br>
+    <a class="link" href={project.href}>visit site</a>
+  </div>
+  <h3 slot="before-blocks">Case Study</h3>
+</Article>

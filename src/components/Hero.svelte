@@ -1,7 +1,9 @@
 <script>
   import {onMount} from 'svelte'
   import {scale} from 'svelte/transition'
-	import {heroSrc} from '../stores/heroSrc.js'
+
+	export let data
+	const {image: src, alt, title} = data
 
   let show = false
   onMount(() => show = true)
@@ -39,8 +41,9 @@
 <section>
 	{#if show}
 		<div>
-			<h1 id={$heroSrc.title}>{$heroSrc.title}</h1>
+			<h1 id={title}>{title}</h1>
+			<slot/>
 		</div>
-		<img in:scale={{duration:2000, start: 1.2, opacity: 0.2}} src={$heroSrc.image} alt={$heroSrc.alt}>
+		<img in:scale={{duration:2000, start: 1.2, opacity: 0.2}} {src} {alt}>
 	{/if}
 </section>

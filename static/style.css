@@ -128,6 +128,7 @@ p {
   max-width: 40em;
 }
 
+.link,
 p a, 
 li a,
 blockquote a {

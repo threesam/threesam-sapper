@@ -25,16 +25,25 @@
 <script lang="ts">
   export let post
 
-  import BlockContent from '@movingbrands/svelte-portable-text'
-  import serializers from '../../components/serializers'
+  import Article from '../../components/Article.svelte'
 </script>
+
+<style>
+  span {
+    display: inline-block;
+    border: 1px solid var(--darkGrey);
+    border-radius: 13px;
+    padding: 1rem;
+    margin-bottom: 2rem;
+  }
+</style>
 
 <svelte:head>
 	<title>{post.title}</title>
 </svelte:head>
 
-<h1>{post.title}</h1>
-
-<img src={post.image} alt={post.alt} />
-<span>{format(parseISO(post.publishedAt), 'yyyy/mm/dd')}</span>
-<BlockContent blocks={post.body} {serializers} />
+<Article data={post}>
+  <div slot="hero">
+    <span>{format(parseISO(post.publishedAt), 'mm/dd/yyyy')}</span>
+  </div>
+</Article>

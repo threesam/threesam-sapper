@@ -14,20 +14,23 @@
 
 <script lang="ts">
   export let songs
+	import Container from '../../components/Container.svelte'
 </script>
 
 <svelte:head>
 	<title>Sounds</title>
 </svelte:head>
 
-<h1>Sounds</h1>
+<Container>
+	<h1>Sounds</h1>
 
-<ul>
-	{#each songs as {slug, title}}
-		<!-- we're using the non-standard `rel=prefetch` attribute to
-				tell Sapper to load the data for the page as soon as
-				the user hovers over the link or taps it, instead of
-				waiting for the 'click' event -->
-		<li><a rel="prefetch" href="sounds/{slug.current}">{title}</a></li>
-	{/each}
-</ul>
+	<ul>
+		{#each songs as {slug, title}}
+			<!-- we're using the non-standard `rel=prefetch` attribute to
+					tell Sapper to load the data for the page as soon as
+					the user hovers over the link or taps it, instead of
+					waiting for the 'click' event -->
+			<li><a rel="prefetch" href="sounds/{slug.current}">{title}</a></li>
+		{/each}
+	</ul>
+</Container>

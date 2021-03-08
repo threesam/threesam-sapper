@@ -24,6 +24,7 @@
 </script>
 
 <script lang="ts">
+  import Hero from '../../components/Hero.svelte'
   export let song
 </script>
 
@@ -37,10 +38,8 @@
 	<title>Sounds</title>
 </svelte:head>
 
-<h1>{song.title}</h1>
-
-<audio controls src={song.audio}>
-  <track kind="captions">
-</audio>
-
-<img src={song.image} alt={song.alt} />
+<Hero data={song}>
+  <audio controls src={song.audio}>
+    <track kind="captions">
+  </audio>
+</Hero>

@@ -22,6 +22,7 @@
 </script>
 
 <script lang="ts">
+	import Container from '../../components/Container.svelte'
 	import BlockContent from '@movingbrands/svelte-portable-text'
 	import serializers from '../../components/serializers'
 
@@ -41,10 +42,13 @@
 	<title>About</title>
 </svelte:head>
 
-<h1>About {name}</h1>
+<Container>
 
-<img in:fade src={image} {alt}>
-
-<div in:fly>
-	<BlockContent blocks={bio} {serializers} />
-</div>
+	<h1>About {name}</h1>
+	
+	<img in:fade src={image} {alt}>
+	
+	<div in:fly>
+		<BlockContent blocks={bio} {serializers} />
+	</div>
+</Container>
