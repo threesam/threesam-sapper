@@ -23,11 +23,11 @@
 <h1>Projects</h1>
 
 <ul>
-	{#each projects as project}
+	{#each projects as {slug, title}}
 		<!-- we're using the non-standard `rel=prefetch` attribute to
 				tell Sapper to load the data for the page as soon as
 				the user hovers over the link or taps it, instead of
 				waiting for the 'click' event -->
-		<li><a rel="prefetch" href="projects/{project.slug.current}">{project.title}</a></li>
+		<li><a rel="prefetch" href="projects/{slug.current}">{title}</a></li>
 	{/each}
 </ul>
