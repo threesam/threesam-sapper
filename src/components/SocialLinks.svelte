@@ -22,8 +22,8 @@ import { svg_element } from "svelte/internal";
   }
 
   a:hover {
-    color: var(--green);
-    transform: scale(0.97);
+    color: var(--primary);
+    transform: scale(1.2);
   }
 </style>
 

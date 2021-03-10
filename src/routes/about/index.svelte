@@ -26,7 +26,14 @@
 	import BlockContent from '@movingbrands/svelte-portable-text'
 	import serializers from '../../components/serializers'
 
+	// import P5Canvas from '../CanvasP5.svelte'
+
 	import {fly, fade} from 'svelte/transition'
+	import {onMount} from 'svelte'
+
+	// onMount(async () => {
+
+	// })
 
 	export let author
 	const { name, image, alt, caption, bio} = author

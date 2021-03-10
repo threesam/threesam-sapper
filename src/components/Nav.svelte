@@ -3,13 +3,11 @@
 </script>
 
 <style>
-	nav a  {
-		opacity: 0.7;
+	a {
+		font-weight: 100;
 	}
 	.active {
-		color: var(--textColor);
-		text-decoration: none;
-		opacity: 1;
+		font-weight: 900;
 	}
 </style>
 
@@ -21,6 +19,7 @@
 		<!-- <a rel="prefetch" class={segment === "sounds" ? 'active' : ""} aria-current="{segment === 'sounds' ? 'page' : undefined}" href="sounds">sounds</a> -->
 		<a rel="prefetch" class={segment === "posts" ? 'active' : ""} aria-current="{segment === 'posts' ? 'page' : undefined}" href="posts">posts</a>
 		<a rel="prefetch" class={segment === "about" ? 'active' : ""} aria-current="{segment === 'about' ? 'page' : undefined}" href="about">about</a>
+		
 	</nav>
 		
 </header>

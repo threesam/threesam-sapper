@@ -8,6 +8,7 @@
       title,
       "image": mainImage.asset->url,
       "alt": mainImage.alt,
+      "palette": mainImage.asset->metadata.palette.lightMuted.background,
       ...
     }`
 
@@ -23,8 +24,13 @@
 
 <script lang="ts">
   export let project
-
   import Article from '../../components/Article.svelte'
+
+  // match primary color to media palette
+  import {onMount} from 'svelte'
+  onMount(() => {
+    document.documentElement.style.cssText = `--primary: ${project.palette}`
+  })
 </script>
 
 <style>

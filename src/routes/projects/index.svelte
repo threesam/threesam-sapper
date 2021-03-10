@@ -14,6 +14,7 @@
 
 <script lang="ts">
   export let projects
+	console.log(projects)
 	import Container from '../../components/Container.svelte'
 </script>
 
@@ -24,8 +25,13 @@
 <Container>
 	<h1>Projects</h1>
 	<ul>
-		{#each projects as {slug, title}}
-			<li><a rel="prefetch" href="projects/{slug.current}">{title}</a></li>
+		{#each projects as {slug, title, tags}}
+			<li>
+				<a rel="prefetch" href="projects/{slug.current}">{title}</a>
+				{#each tags as {value}}
+					<span> | {value} </span>
+				{/each}
+			</li>
 		{/each}
 	</ul>
 </Container>

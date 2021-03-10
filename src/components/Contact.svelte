@@ -1,31 +1,28 @@
 <script>
-  import {fade} from 'svelte/transition'
-  let show = false
+  import {fade, slide} from 'svelte/transition'
 </script>
 
 <style>
-  section {
-    display: grid;
-    place-content: center;
+  .border {
+    padding: 2rem;
+    margin: 1rem;
+    position: relative;
+    z-index: 10;
   }
 
   form {
     text-align: left;
   }
 
-  .show {
+  h3 {
     color: var(--textColor);
-    text-decoration: none;
-    border-bottom: 2px solid var(--primary);
-    cursor: pointer;
+    margin: 0 0 2rem 0;
   }
+
 </style>
 
-<section>
-  <div class="card">
-    {#if !show}
-    <h3 class:show={!show} on:click={() => show = true}>Contact</h3>
-    {:else}
+<section id="contact">
+  <div class="border">
     <h3>Contact</h3>
     <form in:fade name="contact" method="POST" data-netlify="true" netlify-honeypot=“bot-field”>
       <input type="hidden" name="form-name" value="contact" /> 
@@ -47,6 +44,5 @@
       
       <button type="submit">Send</button>
     </form>
-    {/if}
   </div>
 </section>

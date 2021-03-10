@@ -31,8 +31,12 @@
 	export let siteSettings
 	const {title, image, alt, links} = siteSettings
 
+	
+
 	let show = false
-	onMount(()=> show = true)
+	onMount(()=> {
+		show = true
+	})
 
 
     // let P5Sketch
