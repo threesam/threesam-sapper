@@ -23,23 +23,23 @@
 
 <section id="contact">
   <div class="border">
-    <h3>Contact</h3>
+    <h2>Contact</h2>
     <form in:fade name="contact" method="POST" data-netlify="true" netlify-honeypot=“bot-field”>
       <input type="hidden" name="form-name" value="contact" /> 
       
       <div>
         <label for="name">Name</label>
-        <input type="name" name="name" />
+        <input id="name" type="name" name="name" />
       </div>
       
       <div>
         <label for="email">Email</label>
-        <input type="email" name="email" />
+        <input id="email" type="email" name="email" />
       </div>
       
       <div>
         <label for="message">Message</label>
-        <textarea name="message" />
+        <textarea id="messsage" name="message" />
       </div>
       
       <button type="submit">Send</button>
