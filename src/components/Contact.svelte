@@ -14,6 +14,10 @@
     text-align: left;
   }
 
+  form div {
+    margin-bottom: 0.5rem;
+  }
+
   h2 {
     color: var(--textColor);
     margin: 0 0 2rem 0;
