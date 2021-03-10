@@ -14,7 +14,7 @@
     text-align: left;
   }
 
-  h3 {
+  h2 {
     color: var(--textColor);
     margin: 0 0 2rem 0;
   }
