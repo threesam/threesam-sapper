@@ -11,13 +11,14 @@
       const div = document.createElement("div");
       // give style
       div.style.position = "absolute"
-      div.style.top = `${h}`
-      div.style.right = `${Math.log(w) * Math.random()}`
+      div.style.top = `0`
+      div.style.margin = `${0.69*w}rem`
 
-      div.style.height = `${Math.log(h) + h}%`
-      div.style.width = `${Math.log(w) + w}%`
+      div.style.height = `${Math.log(h) *25}%`
+      div.style.width = `${Math.log(w) + (69 * Math.random())}%`
       div.style.border = "0.25rem solid var(--darkGrey)"
-      div.style.borderRadius = "13px"
+      div.style.borderRadius = `${0.69*h}px`
+      div.style.opacity = `${0.003* h}`
 
 
       div.style.zIndex = `0`
@@ -36,7 +37,7 @@
 </script>
 
 <style>
-    footer {
+  footer {
     display: grid;
     place-content: center;
     height: 100vh;
