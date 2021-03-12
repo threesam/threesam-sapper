@@ -16,9 +16,9 @@
 
       div.style.height = `${Math.log(h) *25}%`
       div.style.width = `${Math.log(w) + (69 * Math.random())}%`
-      div.style.border = "0.25rem solid var(--darkGrey)"
+      div.style.border = "0.25rem solid var(--primary)"
       div.style.borderRadius = `${0.69*h}px`
-      div.style.opacity = `${0.0069* h}`
+      div.style.opacity = `${0.00069* h}`
 
 
       div.style.zIndex = `0`

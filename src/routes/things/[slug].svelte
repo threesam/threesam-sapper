@@ -8,7 +8,7 @@
       title,
       "image": mainImage.asset->url,
       "alt": mainImage.alt,
-      "palette": mainImage.asset->metadata.palette.lightMuted.background,
+      "palette": mainImage.asset->metadata.palette.vibrant.background,
       ...
     }`
 
@@ -24,10 +24,12 @@
 
 <script lang="ts">
   export let project
+  console.log(project)
   import Article from '../../components/Article.svelte'
 
   // match primary color to media palette
   import {onMount} from 'svelte'
+import { time_ranges_to_array } from 'svelte/internal'
   onMount(() => {
     document.documentElement.style.cssText = `--primary: ${project.palette}`
   })
@@ -51,4 +53,11 @@
     <a class="link" href={project.href}>visit site</a>
   </div>
   <h3 slot="before-blocks">Case Study</h3>
+  <div slot="after-blocks">
+    <h3>Tech</h3>
+    {#each project.tags as {value}, index}
+      <!-- print tag plus separator, except last element -->
+      <span> <em>{value} {index !== project.tags.length - 1 ? '-' : ''}</em> </span>
+    {/each}
+  </div>
 </Article>

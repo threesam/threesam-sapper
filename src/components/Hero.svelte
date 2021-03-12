@@ -19,6 +19,7 @@
 		text-align: center;
 		background-color: rgba(0,0,0,0.69);
 		overflow: hidden;
+		padding: var(--containerPadding);
 	}
 	
 	img {

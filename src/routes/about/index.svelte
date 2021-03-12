@@ -9,6 +9,7 @@
           "image": image.asset->url,
           "alt": image.alt,
           "caption": image.caption,
+					"palette": image.asset->metadata.palette.vibrant.background
       }`
       
       const query = filter + projection
@@ -26,24 +27,16 @@
 	import BlockContent from '@movingbrands/svelte-portable-text'
 	import serializers from '../../components/serializers'
 
-	// import P5Canvas from '../CanvasP5.svelte'
-
 	import {fly, fade} from 'svelte/transition'
 	import {onMount} from 'svelte'
 
-	// onMount(async () => {
-
-	// })
-
 	export let author
-	const { name, image, alt, caption, bio} = author
+	const { name, image, alt, caption, bio, palette} = author
+	console.log(palette)
+  onMount(() => {
+    document.documentElement.style.cssText = `--primary: ${palette}`
+  })
 </script>
-
-<style>
-	img {
-		filter: grayscale(100%);
-	}
-</style>
 
 <svelte:head>
 	<title>About</title>
