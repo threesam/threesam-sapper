@@ -2,7 +2,14 @@
   import client from "../../sanityClient";
 
   export async function preload() {
-    const query = /* groq */`*[_type == 'project']`
+    const query = /* groq */`*[_type == 'project']{
+			"slug": slug.current,
+			title,
+			"palette": mainImage.asset->metadata.palette.darkMuted.background,
+			"image": mainImage.asset->url,
+			"alt": mainImage.alt,
+			description
+		}`
 		
     const projects = await client
       .fetch(query)
@@ -13,9 +20,11 @@
 </script>
 
 <script lang="ts">
+	import Container from '../../components/Container.svelte'
+	import ListCard from '../../components/ListCard.svelte'
+
   export let projects
 	console.log(projects)
-	import Container from '../../components/Container.svelte'
 </script>
 
 <svelte:head>
@@ -24,12 +33,6 @@
 
 <Container>
 	<h1>Projects</h1>
-	<ul>
-		{#each projects as {slug, title}}
-			<li>
-				<a rel="prefetch" href="things/{slug.current}">{title}</a>
-			</li>
-		{/each}
-	</ul>
+	<ListCard data={projects} />
 </Container>
 		
