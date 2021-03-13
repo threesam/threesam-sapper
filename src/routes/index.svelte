@@ -9,6 +9,7 @@
           "image": mainImage.asset->url,
           "alt": mainImage.alt,
           "caption": mainImage.caption,
+					"palette": mainImage.asset->metadata.palette.vibrant.background,
 					"links": author->links
       }`
       
@@ -32,19 +33,12 @@
 	const {title, image, alt, links} = siteSettings
 
 	
-
+	// show hero image, and dynamically match primary color to image palette
 	let show = false
 	onMount(()=> {
 		show = true
+		document.documentElement.style.cssText = `--primary: ${siteSettings.palette}`
 	})
-
-
-    // let P5Sketch
-    // onMount(async () => {
-		// 		show = true
-    //     const mod = await import("../components/CanvasP5.svelte")
-    //     P5Sketch = mod.default
-    // })
 </script>
 
 <style>
