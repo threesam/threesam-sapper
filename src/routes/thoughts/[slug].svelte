@@ -1,6 +1,5 @@
 <script context="module" lang="ts">
   import client from "../../sanityClient";
-  import {format, parseISO} from 'date-fns'
 
   export async function preload({params}) {
     const {slug} = params
@@ -24,6 +23,7 @@
 </script>
 
 <script lang="ts">
+  import {format, parseISO} from 'date-fns'
   export let post
   import Article from '../../components/Article.svelte'
   
@@ -50,6 +50,6 @@
 
 <Article data={post}>
   <div slot="hero">
-    <span>{format(parseISO(post.publishedAt), 'mm/dd/yyyy')}</span>
+    <span>{format(parseISO(post.publishedAt), 'yyyy-MM-dd')}</span>
   </div>
 </Article>

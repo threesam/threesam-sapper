@@ -24,7 +24,6 @@
 	import ListCard from '../../components/ListCard.svelte'
 
   export let projects
-	console.log(projects)
 </script>
 
 <svelte:head>

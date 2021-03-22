@@ -3,8 +3,7 @@
 
   export async function preload({params}) {
     const {slug} = params
-    const filter = `*[_type == "project" && slug.current == $slug][0]`
-    const projection = `{
+    const query = /* groq */`*[_type == "project" && slug.current == $slug][0]{
       title,
       "image": mainImage.asset->url,
       "alt": mainImage.alt,
@@ -12,8 +11,6 @@
       ...
     }`
 
-    const query = filter + projection
-		
     const project = await client
       .fetch(query, {slug})
 			.catch((err) => this.error(500, err))
@@ -24,12 +21,10 @@
 
 <script lang="ts">
   export let project
-  console.log(project)
   import Article from '../../components/Article.svelte'
 
   // match primary color to media palette
   import {onMount} from 'svelte'
-import { time_ranges_to_array } from 'svelte/internal'
   onMount(() => {
     document.documentElement.style.cssText = `--primary: ${project.palette}`
   })
@@ -54,7 +49,7 @@ import { time_ranges_to_array } from 'svelte/internal'
   </div>
   <h3 slot="before-blocks">Case Study</h3>
   <div slot="after-blocks">
-    <h3>Tech</h3>
+    <h4>Tech</h4>
     {#each project.tags as {value}, index}
       <!-- print tag plus separator, except last element -->
       <span> <em>{value} {index !== project.tags.length - 1 ? '-' : ''}</em> </span>

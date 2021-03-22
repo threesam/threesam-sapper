@@ -1,4 +1,7 @@
 <script>
+  // get current route from $page.path
+  import { stores } from '@sapper/app';
+	const { page } = stores();
   export let data
 </script>
 
@@ -41,7 +44,7 @@
     <li><a 
       style={`border: 0.125rem solid ${palette};`}
       rel="prefetch" 
-      href="thoughts/{slug}">
+      href="{$page.path}/{slug}">
       <h2>{title}</h2>
       {#if description}
         <p>{description}</p>
