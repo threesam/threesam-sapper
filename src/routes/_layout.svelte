@@ -2,16 +2,14 @@
 	import Nav from '../components/Nav.svelte';
 	import Footer from '../components/Footer.svelte';
 
-	export let segment;
-
 	// reset primary color
 	import {beforeUpdate} from 'svelte'
-  import {initialColor} from '../stores/palette'
+  import {initialPrimaryColor} from '../stores/initialPrimaryColor'
   beforeUpdate(() => {
-    if($initialColor === null) {
-      $initialColor = getComputedStyle(document.documentElement).getPropertyValue('--primary')
+    if($initialPrimaryColor === null) {
+      $initialPrimaryColor = getComputedStyle(document.documentElement).getPropertyValue('--primary')
     }
-    document.documentElement.style.cssText = `--primary: ${$initialColor}`
+    document.documentElement.style.cssText = `--primary: ${$initialPrimaryColor}`
   })
 </script>
 
@@ -23,7 +21,7 @@
 
 </style>
 
-<Nav {segment}/>
+<Nav />
 
 
 <main>

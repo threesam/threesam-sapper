@@ -1,7 +1,4 @@
 <script>
-import { svg_element } from "svelte/internal";
-
-
   export let links
 </script>
 

@@ -1,5 +1,7 @@
 <script>
-	export let segment;
+	import { stores } from '@sapper/app';
+	const { page } = stores();
+	const segment = page.path
 </script>
 
 <style>

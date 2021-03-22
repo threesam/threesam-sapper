@@ -40,7 +40,7 @@
 </style>
 
 <ul>
-  {#each data as {slug, title, image: src, alt, palette, description}}
+  {#each data as {slug, title, image: src, alt, palette, description, href}}
     <li><a 
       style={`border: 0.125rem solid ${palette};`}
       rel="prefetch" 
@@ -48,6 +48,9 @@
       <h2>{title}</h2>
       {#if description}
         <p>{description}</p>
+      {/if}
+      {#if href}
+        <a href={href}>visit site</a>
       {/if}
       <img {src} {alt} />
     </a></li>
