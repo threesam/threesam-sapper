@@ -9,7 +9,7 @@
           "image": mainImage.asset->url,
           "alt": mainImage.alt,
           "caption": mainImage.caption,
-					"palette": mainImage.asset->metadata.palette.vibrant.background,
+					"palette": mainImage.asset->metadata.palette.lightMuted.background,
 					"links": author->links
       }`
       
@@ -27,10 +27,13 @@
 	import {onMount} from 'svelte'
 	import {fade, scale} from 'svelte/transition'
 	import SocialLinks from '../components/SocialLinks.svelte'
-	import sketch from '../components/p5/sketch.js'
+	import imageBuilder from '../utils/imageUrlBuilder'
 
 	export let siteSettings
 	const {title, image, alt, links} = siteSettings
+
+	let innerW
+	let innerH
 
 	
 	// show hero image, and dynamically match primary color to image palette
@@ -74,13 +77,15 @@
 	<title>{title}</title>
 </svelte:head>
 
+<svelte:window bind:innerWidth={innerW} bind:innerHeight={innerH} />
+
 <section>
 	{#if show}
 		<div class="card">
 			<h1 id="{title}">{title}</h1>
 			<SocialLinks {links}/>
 		</div>
-		<img in:scale={{duration:2000, start: 1.2, opacity: 0.2}} src={image} {alt}>
+		<img loading="lazy" in:scale={{duration:2000, start: 1.2, opacity: 0.2}} src={imageBuilder(image).width(innerW).height(innerH)} {alt} />
 	{/if}
 	</section>
 <!-- <svelte:component this={P5Sketch} {sketch} id="contact-sketch"/>	 -->

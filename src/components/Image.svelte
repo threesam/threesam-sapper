@@ -1,6 +1,11 @@
 <script>
+  import imageBuilder from '../utils/imageUrlBuilder'
   export let url;
   export let alt;
+
+  let image
+  let w = image.offsetWidth
+  let h = image.offsetHeight
 </script>
 
 <style>
@@ -9,4 +14,4 @@
   }
 </style>
 
-<img src={url} {alt} loading="lazy"/>
+<img bind:this={image} src={imageBuilder(url).width(w).height(h)} {alt} loading="lazy"/>

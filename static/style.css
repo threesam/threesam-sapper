@@ -8,6 +8,7 @@
   --red: #ff5470;
   --yellow: #fde24f;
   --black: #1b2d45;
+  --trueBlack: #000;
   --darkBlue: #00214d;
   --darkGrey: #111;
   --grey: #bfbfbf;
@@ -243,7 +244,7 @@ button {
   background: var(--buttonColor);
   border: none;
   border-radius: 10px;
-  padding: 5px 25px;
+  padding: 7px 25px;
   box-shadow: var(--level-1);
   transition: 0.3s ease-in-out box-shadow;
 }
@@ -332,7 +333,7 @@ button.small {
   --cardBg: var(--darkGrey);
   --background: var(--black);
   --textColor: var(--lightGrey);
-  --buttonTextColor: var(--black);
+  --buttonTextColor: var(--trueBlack);
   --headerBackground: var(--darkGrey);
   --headerTextColor: var(--white);
   --footerBackground: var(--darkGrey);

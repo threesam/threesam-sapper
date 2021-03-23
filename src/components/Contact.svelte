@@ -42,8 +42,9 @@
       </div>
       
       <div>
-        <label for="message">Message</label>
-        <textarea id="messsage" name="message" />
+        <label for="message">Message
+          <textarea id="messsage" name="message" />
+        </label>
       </div>
       
       <button type="submit">Send</button>
