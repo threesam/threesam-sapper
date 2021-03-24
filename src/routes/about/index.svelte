@@ -6,9 +6,9 @@
 		const projection = /* groq */`{
           ...,
           name,
-          "image": image.asset->url,
-          "alt": image.alt,
-          "caption": image.caption,
+          // "image": image.asset->url,
+          // "alt": image.alt,
+          // "caption": image.caption,
 					"palette": image.asset->metadata.palette.vibrant.background
       }`
       
@@ -25,7 +25,6 @@
 <script lang="ts">
 	import Container from '../../components/Container.svelte'
 	import SEO from '../../components/SEO.svelte'
-	import Image from '../../components/Image.svelte'
 	import BlockContent from '@movingbrands/svelte-portable-text'
 	import serializers from '../../components/serializers'
 
@@ -34,15 +33,10 @@
 
 	export let author
 	const { name, image, alt, caption, bio, palette} = author
+
   onMount(() => {
     document.documentElement.style.cssText = `--primary: ${palette}`
   })
-
-	let width
-
-	function parentWidth(node) {
-    width = node.parentElement.clientWidth;
-	}
 </script>
 
 <style>
@@ -59,12 +53,7 @@
 />
 
 <Container>
-
 	<h1>About {name}</h1>
-	
-	<!-- render iamge with square aspect ratio -->
-	<Image url={image} {alt} />
-	
 	<div in:fly>
 		<BlockContent blocks={bio} {serializers} />
 	</div>
