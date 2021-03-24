@@ -32,6 +32,7 @@
     font-size: 2rem;
     text-shadow: 0 0 3px black;
     margin: 0;
+    text-align: center;
   }
   img {
     position: absolute;
