@@ -15,18 +15,6 @@
   export let alt
   export let tags
   export let type = 'website'
-
-  console.log(
-    title,
-    description,
-    image,
-    alt,
-    type,
-    publishedAt,
-    tags,
-    $page.host,
-    $page.path
-  )
 </script>
 
 {#if type !== 'website'}
