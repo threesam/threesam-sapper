@@ -56,7 +56,7 @@
 
 	<h1>About {name}</h1>
 	
-	// render iamge with square aspect ratio
+	<!-- render iamge with square aspect ratio -->
 	<img use:parentWidth in:fade {width} height={width} src={imageBuilder(image).width(width).height(width).url()} {alt}>
 	
 	<div in:fly>
