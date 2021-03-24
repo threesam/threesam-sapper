@@ -24,10 +24,7 @@ export default {
       component: Image,
       childNodes: children,
       props: {
-        url: urlFor(node)
-          .width(800)
-          .auto('format')
-          .url(),
+        url: node,
         alt: node.alt,
       },
     }),
