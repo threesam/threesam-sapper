@@ -5,6 +5,7 @@
   export let data
 
   let width
+  let height = 350
 
   function parentWidth(node) {
     width = node.parentElement.clientWidth;
@@ -22,7 +23,6 @@
     place-content: center;
     position: relative;
     width: 100%;
-    height: 400px;
     padding: 2rem;
 		border-radius: 13px;
     overflow: hidden;
@@ -32,7 +32,6 @@
     font-size: 2rem;
     text-shadow: 0 0 3px black;
     margin: 0;
-    text-align: center;
   }
   img {
     position: absolute;
@@ -49,7 +48,7 @@
 <ul>
   {#each data as {slug, title, image: src, alt, palette, description, href}}
     <li><a 
-      style={`border: 0.125rem solid ${palette};`}
+      style={`height: ${height}px; border: 0.125rem solid ${palette};`}
       rel="prefetch" 
       href="{$page.path}/{slug}">
       <h2>{title}</h2>
@@ -61,9 +60,9 @@
       {/if}
       <img 
         {width} 
-        height="400" 
+        {height} 
         use:parentWidth 
-        src={imageBuilder(src).width(width).height(400).auto('format').url()} 
+        src={imageBuilder(src).width(width).height(height).auto('format').url()} 
         {alt} 
         loading="lazy" 
       />
