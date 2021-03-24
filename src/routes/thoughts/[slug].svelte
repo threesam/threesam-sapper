@@ -3,16 +3,15 @@
 
   export async function preload({params}) {
     const {slug} = params
-    const thoughts = /* groq */`*[_type == "post" && slug.current == $slug][0]{
+    const query = /* groq */`*[_type == "post" && slug.current == $slug][0]{
       title,
       "image": mainImage.asset->url,
       "alt": mainImage.alt,
       "palette": mainImage.asset->metadata.palette.vibrant.background,
       "tags": tags[].value,
-      publishedAt
+      publishedAt,
+      ...
     }`
-
-    const query = thoughts
 		
     const post = await client
       .fetch(query, {slug})
