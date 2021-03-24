@@ -43,6 +43,9 @@
     object-fit: cover;
     filter: brightness(40%);
   }
+  .center {
+    text-align: center;
+  }
 </style>
 
 <ul>
@@ -51,7 +54,7 @@
       style={`height: ${height}px; border: 0.125rem solid ${palette};`}
       rel="prefetch" 
       href="{$page.path}/{slug}">
-      <h2>{title}</h2>
+      <h2 class:center={$page.path === '/thoughts' ? 'center' : ''}>{title}</h2>
       {#if description}
         <p>{description}</p>
       {/if}
