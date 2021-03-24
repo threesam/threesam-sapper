@@ -83,11 +83,11 @@
 
 <section>
 	{#if show}
-		<div class="card">
+		<div in:fade class="card">
 			<h1 id="{title}">{title}</h1>
 			<SocialLinks {links}/>
 		</div>
-		<img loading="lazy" in:scale={{duration:2000, start: 1.2, opacity: 0.2}} src={imageBuilder(image).width(innerW).height(innerH)} {alt} />
+		<img loading="lazy" in:scale={{duration:2000, start: 1.2, opacity: 0.2}} src={imageBuilder(image).width(innerW).height(innerH).url()} {alt} />
 	{/if}
 	</section>
 <!-- <svelte:component this={P5Sketch} {sketch} id="contact-sketch"/>	 -->

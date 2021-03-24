@@ -4,12 +4,12 @@
   export async function preload() {
 		const filter = /* groq */`*[_type == "author"][0]`
 		const projection = /* groq */`{
-          ...,
+          bio,
           name,
           // "image": image.asset->url,
           // "alt": image.alt,
           // "caption": image.caption,
-					"palette": image.asset->metadata.palette.vibrant.background
+					// "palette": image.asset->metadata.palette.vibrant.background
       }`
       
       const query = filter + projection
@@ -28,15 +28,15 @@
 	import BlockContent from '@movingbrands/svelte-portable-text'
 	import serializers from '../../components/serializers'
 
-	import {fly, fade} from 'svelte/transition'
+	import {blur, fly} from 'svelte/transition'
 	import {onMount} from 'svelte'
 
 	export let author
 	const { name, image, alt, caption, bio, palette} = author
 
-  onMount(() => {
-    document.documentElement.style.cssText = `--primary: ${palette}`
-  })
+  // onMount(() => {
+  //   document.documentElement.style.cssText = `--primary: ${palette}`
+  // })
 </script>
 
 <style>
@@ -53,8 +53,8 @@
 />
 
 <Container>
-	<h1>About {name}</h1>
-	<div in:fly>
+	<h1 in:blur={{duration: 1000}}>About {name}</h1>
+	<div in:fly={{duration: 1000, x: 69}}>
 		<BlockContent blocks={bio} {serializers} />
 	</div>
 </Container>
