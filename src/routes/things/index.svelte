@@ -32,7 +32,6 @@
 
   export let data
 	const {projects, settings} = data
-	console.log(data)
 </script>
 
 <SEO title="Things" description="The various works of Sam including projects and songs" {...settings} />
