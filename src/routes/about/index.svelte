@@ -24,6 +24,7 @@
 
 <script lang="ts">
 	import Container from '../../components/Container.svelte'
+	import SEO from '../../components/SEO.svelte'
 	import BlockContent from '@movingbrands/svelte-portable-text'
 	import serializers from '../../components/serializers'
 
@@ -32,15 +33,17 @@
 
 	export let author
 	const { name, image, alt, caption, bio, palette} = author
-	console.log(palette)
   onMount(() => {
     document.documentElement.style.cssText = `--primary: ${palette}`
   })
 </script>
 
-<svelte:head>
-	<title>About</title>
-</svelte:head>
+<SEO 
+	title="About"
+	description="Short bio of Sam"
+	{image}
+	{alt}
+/>
 
 <Container>
 

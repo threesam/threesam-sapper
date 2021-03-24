@@ -20,13 +20,16 @@
 </script>
 
 <script lang="ts">
-  export let project
   import Article from '../../components/Article.svelte'
+  import SEO from '../../components/SEO.svelte'
+  
+  export let project
+  const {title, image, alt, palette, description, href, tags} = project
 
   // match primary color to media palette
   import {onMount} from 'svelte'
   onMount(() => {
-    document.documentElement.style.cssText = `--primary: ${project.palette}`
+    document.documentElement.style.cssText = `--primary: ${palette}`
   })
 </script>
 
@@ -37,22 +40,20 @@
   }
 </style>
 
-<svelte:head>
-	<title>Projects</title>
-</svelte:head>
+<SEO {...project} />
 
 <Article data={project}>
   <div slot="hero">
-    <p>{project.description}</p>
+    <p>{description}</p>
     <br>
-    <a class="link" href={project.href}>visit site</a>
+    <a class="link" href={href}>visit site</a>
   </div>
   <h3 slot="before-blocks">Case Study</h3>
   <div slot="after-blocks">
     <h4>Tech</h4>
-    {#each project.tags as {value}, index}
+    {#each tags as {value}, index}
       <!-- print tag plus separator, except last element -->
-      <span> <em>{value} {index !== project.tags.length - 1 ? '-' : ''}</em> </span>
+      <span> <em>{value} {index !== tags.length - 1 ? '-' : ''}</em> </span>
     {/each}
   </div>
 </Article>

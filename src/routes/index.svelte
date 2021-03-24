@@ -23,14 +23,16 @@
 		}
 </script>
 
-<script>
+<script lang="ts">
 	import {onMount} from 'svelte'
 	import {fade, scale} from 'svelte/transition'
 	import SocialLinks from '../components/SocialLinks.svelte'
 	import imageBuilder from '../utils/imageUrlBuilder'
+	import SEO from '../components/SEO.svelte'
 
 	export let siteSettings
 	const {title, image, alt, links} = siteSettings
+
 
 	let innerW
 	let innerH
@@ -73,9 +75,9 @@
 	}
 </style>
 
-<svelte:head>
-	<title>{title}</title>
-</svelte:head>
+<SEO 
+	{...siteSettings}
+/>
 
 <svelte:window bind:innerWidth={innerW} bind:innerHeight={innerH} />
 

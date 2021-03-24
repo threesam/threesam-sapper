@@ -2,7 +2,8 @@
   import client from "../../sanityClient";
 
   export async function preload() {
-    const query = /* groq */`*[_type == 'post']{
+    const siteSettings = /* groq */`*[_type == "siteSettings"][0]{"image": mainImage.asset->url, "alt": mainImage.alt}`
+    const postsQuery = /* groq */`*[_type == 'post']{
 			"slug": slug.current,
 			title,
 			"palette": mainImage.asset->metadata.palette.darkMuted.background,
@@ -10,57 +11,34 @@
 			"alt": mainImage.alt
 
 		}`
+
+    const query = `{
+			"settings": ${siteSettings},
+			"posts": ${postsQuery}
+		}`
 		
-    const posts = await client
+    const data = await client
       .fetch(query)
 			.catch((err) => this.error(500, err))
     
-    return {posts}
+    return {data}
   }
 </script>
 
 <script lang="ts">
 	import Container from '../../components/Container.svelte'
 	import ListCard from '../../components/ListCard.svelte'
-  export let posts
+  import SEO from '../../components/SEO.svelte'
+  
+  export let data
+  const { posts, settings} = data
 </script>
 
-<style>
-  ul {
-		margin: 0;
-		list-style: none;
-		padding: 0;
-	}
-  a {
-    display: grid;
-    place-content: center;
-    position: relative;
-    width: 100%;
-    height: 400px;
-    padding: 2rem;
-		border-radius: 13px;
-    overflow: hidden;
-    margin-bottom: 2rem;
-  }
-  h2 {
-    font-size: 2rem;
-    text-shadow: 0 0 3px black;
-  }
-  img {
-    position: absolute;
-    top: -10%;
-    left: -10%;
-    width: 120%;
-    height: 120%;
-    z-index: -10;
-    object-fit: cover;
-    filter: brightness(40%);
-  }
-</style>
-
-<svelte:head>
-	<title>Posts</title>
-</svelte:head>
+<SEO 
+  title="Posts" 
+  description="Various thoughts on topics including tech, music, and community" 
+  {...settings} 
+/>
 
 <Container>
 	<h1>Recent Posts</h1>

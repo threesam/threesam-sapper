@@ -15,7 +15,8 @@
     "date-fns": "^2.19.0",
     "p5": "^1.2.0",
     "polka": "next",
-    "sirv": "^1.0.0"
+    "sirv": "^1.0.0",
+    "svelte-seo": "^1.1.0"
   },
   "devDependencies": {
     "@babel/core": "^7.0.0",

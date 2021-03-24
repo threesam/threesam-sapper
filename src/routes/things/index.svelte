@@ -2,7 +2,8 @@
   import client from "../../sanityClient";
 
   export async function preload() {
-    const query = /* groq */`*[_type == 'project']{
+		const siteSettings = /* groq */`*[_type == "siteSettings"][0]{"image": mainImage.asset->url, "alt": mainImage.alt}`
+    const projectsQuery = /* groq */`*[_type == 'project']{
 			"slug": slug.current,
 			title,
 			"palette": mainImage.asset->metadata.palette.darkMuted.background,
@@ -10,25 +11,31 @@
 			"alt": mainImage.alt,
 			description
 		}`
+
+		const query = `{
+			"settings": ${siteSettings},
+			"projects": ${projectsQuery}
+		}`
 		
-    const projects = await client
+    const data = await client
       .fetch(query)
 			.catch((err) => this.error(500, err))
     
-    return {projects}
+    return {data}
   }
 </script>
 
 <script lang="ts">
 	import Container from '../../components/Container.svelte'
 	import ListCard from '../../components/ListCard.svelte'
+	import SEO from '../../components/SEO.svelte'
 
-  export let projects
+  export let data
+	const {projects, settings} = data
+	console.log(data)
 </script>
 
-<svelte:head>
-	<title>Projects</title>
-</svelte:head>
+<SEO title="Things" description="The various works of Sam including projects and songs" {...settings} />
 
 <Container>
 	<h1>Projects</h1>

@@ -1,7 +1,7 @@
 <script lang="ts">
 	import Nav from '../components/Nav.svelte';
 	import Footer from '../components/Footer.svelte';
-
+	
 	// reset primary color
 	import {beforeUpdate} from 'svelte'
   import {initialPrimaryColor} from '../stores/initialPrimaryColor'

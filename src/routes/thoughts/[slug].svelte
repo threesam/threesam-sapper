@@ -3,16 +3,16 @@
 
   export async function preload({params}) {
     const {slug} = params
-    const filter = /* groq */`*[_type == "post" && slug.current == $slug][0]`
-    const projection = /* groq */`{
+    const thoughts = /* groq */`*[_type == "post" && slug.current == $slug][0]{
       title,
       "image": mainImage.asset->url,
       "alt": mainImage.alt,
       "palette": mainImage.asset->metadata.palette.vibrant.background,
-      ...
+      "tags": tags[].value,
+      publishedAt
     }`
 
-    const query = filter + projection
+    const query = thoughts
 		
     const post = await client
       .fetch(query, {slug})
@@ -24,8 +24,11 @@
 
 <script lang="ts">
   import {format, parseISO} from 'date-fns'
-  export let post
   import Article from '../../components/Article.svelte'
+  import SEO from '../../components/SEO.svelte'
+  
+  export let post
+  console.log(post)
   
   // match primary color to media palette
   import {onMount} from 'svelte'
@@ -44,9 +47,7 @@
   }
 </style>
 
-<svelte:head>
-	<title>{post.title}</title>
-</svelte:head>
+<SEO type="article" {...post} />
 
 <Article data={post}>
   <div slot="hero">
