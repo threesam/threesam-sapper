@@ -27,6 +27,7 @@
 	import SEO from '../../components/SEO.svelte'
 	import BlockContent from '@movingbrands/svelte-portable-text'
 	import serializers from '../../components/serializers'
+	import imageBuilder from '../../utils/imageUrlBuilder.js'
 
 	import {fly, fade} from 'svelte/transition'
 	import {onMount} from 'svelte'
@@ -36,6 +37,12 @@
   onMount(() => {
     document.documentElement.style.cssText = `--primary: ${palette}`
   })
+
+	let width
+
+	function parentWidth(elem) {
+    width = elem.parentElement.clientWidth;
+	}
 </script>
 
 <SEO 
@@ -49,7 +56,8 @@
 
 	<h1>About {name}</h1>
 	
-	<img in:fade src={image} {alt}>
+	// render iamge with square aspect ratio
+	<img use:parentWidth in:fade {width} height={width} src={imageBuilder(image).width(width).height(width).url()} {alt}>
 	
 	<div in:fly>
 		<BlockContent blocks={bio} {serializers} />
