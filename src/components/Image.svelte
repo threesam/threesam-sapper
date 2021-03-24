@@ -17,7 +17,7 @@
   }
 
   onMount(() => {
-    const rem = convertRemToPixels(4)
+    const rem = convertRemToPixels(6)
     width = width + rem
   })
 </script>
@@ -27,9 +27,9 @@
     filter: brightness(90%);
     position: relative;
     margin: 2rem 0;
-    left: -2rem;
-    width: calc(100% + 4rem);
-    height: calc(100% + 4rem);
+    left: -3rem;
+    width: calc(100% + 6rem);
+    height: calc(100% + 6rem);
   }
 </style>
 
