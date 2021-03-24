@@ -25,9 +25,9 @@
 <script lang="ts">
 	import Container from '../../components/Container.svelte'
 	import SEO from '../../components/SEO.svelte'
+	import Image from '../../components/Image.svelte'
 	import BlockContent from '@movingbrands/svelte-portable-text'
 	import serializers from '../../components/serializers'
-	import imageBuilder from '../../utils/imageUrlBuilder.js'
 
 	import {fly, fade} from 'svelte/transition'
 	import {onMount} from 'svelte'
@@ -57,7 +57,7 @@
 	<h1>About {name}</h1>
 	
 	<!-- render iamge with square aspect ratio -->
-	<img use:parentWidth in:fade {width} height={width} src={imageBuilder(image).width(width).height(width).url()} {alt}>
+	<Image url={image} {alt} />
 	
 	<div in:fly>
 		<BlockContent blocks={bio} {serializers} />
