@@ -32,8 +32,7 @@
       createDiv(i, 2*i)
       i--
     }
-  }
-  )
+  })
 </script>
 
 <style>
