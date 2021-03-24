@@ -23,7 +23,6 @@
 
 <Nav />
 
-
 <main>
 	<slot/>
 </main>
