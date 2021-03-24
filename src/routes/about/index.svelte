@@ -40,8 +40,8 @@
 
 	let width
 
-	function parentWidth(elem) {
-    width = elem.parentElement.clientWidth;
+	function parentWidth(node) {
+    width = node.parentElement.clientWidth;
 	}
 </script>
 
