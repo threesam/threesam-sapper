@@ -5,7 +5,13 @@
     padding: calc(3rem + var(--headerHeight)) var(--containerPadding);
 		max-width: 40rem;
 		margin: 0 auto;
-		overflow: hidden;
+		/* overflow: hidden; */
+	}
+
+	@media (max-width: 50rem) {
+		section {
+			overflow: hidden;
+		}
 	}
 </style>
 
