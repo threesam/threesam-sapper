@@ -1,8 +1,14 @@
 <script>
-  // get current route from $page.path
+  import imageBuilder from '../utils/imageUrlBuilder'
   import { stores } from '@sapper/app';
 	const { page } = stores();
   export let data
+
+  let width
+
+  function parentWidth(node) {
+    width = node.parentElement.clientWidth;
+  }
 </script>
 
 <style>
@@ -52,7 +58,14 @@
       {#if href}
         <a href={href}>visit site</a>
       {/if}
-      <img {src} {alt} />
+      <img 
+        {width} 
+        height="400" 
+        use:parentWidth 
+        src={imageBuilder(src).width(width).height(400).auto('format').url()} 
+        {alt} 
+        loading="lazy" 
+      />
     </a></li>
   {/each}
 </ul>
