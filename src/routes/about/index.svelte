@@ -45,6 +45,12 @@
 	}
 </script>
 
+<style>
+	h1 {
+		margin-bottom: 0;
+	}
+</style>
+
 <SEO 
 	title="About"
 	description="Short bio of Sam"
