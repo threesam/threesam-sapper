@@ -46,6 +46,6 @@
   }
 </style>
 
-<footer>
+<footer id="footer-contact">
   <Contact/>
 </footer>
