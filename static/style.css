@@ -63,6 +63,7 @@
 html {
   font-size: var(--baseFontSize);
   box-sizing: border-box;
+  scroll-behavior: smooth;
 } /*18px*/
 
 *,
