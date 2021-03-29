@@ -27,7 +27,6 @@
   import SEO from '../../components/SEO.svelte'
   
   export let post
-  console.log(post)
   
   // match primary color to media palette
   import {onMount} from 'svelte'
