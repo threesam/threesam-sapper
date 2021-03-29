@@ -34,7 +34,7 @@
 	const {projects, settings} = data
 </script>
 
-<SEO title="Things" description="The various works of Sam including projects and songs" {...settings} />
+<SEO title="Projects" description="The various works of Sam including projects and songs" {...settings} />
 
 <Container>
 	<h1>Projects</h1>
