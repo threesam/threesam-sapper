@@ -50,7 +50,7 @@
 
 <ul>
   {#each data as {slug, title, image: src, alt, palette, description, href}}
-    <li><a 
+    <li><a
       style={`height: ${height}px; border: 0.125rem solid ${palette};`}
       rel="prefetch" 
       href="{$page.path}/{slug}">
