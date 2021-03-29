@@ -17,9 +17,10 @@
 	<a class="logo" aria-current="{segment === undefined ? 'page' : undefined}" href=".">threesam</a>
 
 	<nav>
-		<a rel="prefetch" class={segment === "about" ? 'active' : ""} aria-current="{segment === 'about' ? 'page' : undefined}" href="about">about</a>
-		<a rel="prefetch" class={segment === "thoughts" ? 'active' : ""} aria-current="{segment === 'thoughts' ? 'page' : undefined}" href="thoughts">thoughts</a>
+		<!-- <a rel="prefetch" class={segment === "thoughts" ? 'active' : ""} aria-current="{segment === 'thoughts' ? 'page' : undefined}" href="thoughts">thoughts</a> -->
 		<a rel="prefetch" class={segment === "projects" ? 'active' : ""} aria-current="{segment === 'projects' ? 'page' : undefined}" href="projects">projects</a>
+		<a rel="prefetch" class={segment === "about" ? 'active' : ""} aria-current="{segment === 'about' ? 'page' : undefined}" href="about">about</a>
+		<a href="#contact">contact</a>
 	</nav>
 		
 </header>
