@@ -9,16 +9,24 @@
 
   function parentWidth(node) {
     width = node.parentElement.clientWidth;
-    console.log(width)
   }
 
-  function convertRemToPixels(rem) {    
-    return rem * parseFloat(getComputedStyle(document.documentElement).fontSize);
-  }
+  // function convertRemToPixels(rem) {    
+  //   return rem * parseFloat(getComputedStyle(document.documentElement).fontSize);
+  // }
+
+  let loaded = false
+  let thisImage
 
   onMount(() => {
-    const rem = convertRemToPixels(6)
-    width = width + rem
+    // overflow container
+    // const rem = convertRemToPixels(6)
+    // width = width + rem
+
+    // mount when image loads
+    thisImage.onload = () => {
+      loaded = true
+    }
   })
 </script>
 
@@ -27,9 +35,12 @@
     filter: brightness(90%);
     position: relative;
     margin: 2rem 0;
-    left: -3rem;
-    width: calc(100% + 6rem);
-    height: calc(100% + 6rem);
+    opacity: 0;
+    transition: opacity 1200ms ease-out;
+  }
+
+  img.loaded {
+    opacity: 1;
   }
 </style>
 
@@ -37,7 +48,9 @@
   {width}
   height={width}
   use:parentWidth 
+  class:loaded
   src={imageBuilder(url).width(width).height(width).auto('format').url()} 
+  bind:this={thisImage}
   {alt} 
   loading="lazy" 
 />
