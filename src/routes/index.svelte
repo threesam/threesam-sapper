@@ -4,13 +4,13 @@
   export async function preload() {
 		const filter = /* groq */`*[_type == "siteSettings"][0]`
 		const projection = /* groq */`{
-          ...,
+          tagLine,
+					description,
           title,
           "image": mainImage.asset->url,
           "alt": mainImage.alt,
           "caption": mainImage.caption,
 					"palette": mainImage.asset->metadata.palette.lightMuted.background,
-					"links": author->links
       }`
       
       const query = filter + projection
@@ -25,13 +25,12 @@
 
 <script lang="ts">
 	import {onMount} from 'svelte'
-	import {fade, scale} from 'svelte/transition'
-	import SocialLinks from '../components/SocialLinks.svelte'
+	import {slide, scale, fly} from 'svelte/transition'
 	import imageBuilder from '../utils/imageUrlBuilder'
 	import SEO from '../components/SEO.svelte'
-
+	
 	export let siteSettings
-	const {title, image, alt, links} = siteSettings
+	const {title, image, alt, tagLine, description} = siteSettings
 
 
 	let innerW
@@ -53,9 +52,14 @@
 		width: 100%;
 		display: grid;
 		place-content: center;
-		text-align: center;
 		background-color: rgba(0,0,0,0.69);
 		overflow: hidden;
+	}
+	div {
+		width: min-content;
+		margin: 0 auto;
+		/* text-align: center; */
+		padding: clamp(2rem, 5vw, 3rem);
 	}
 	
 	img {
@@ -69,9 +73,12 @@
 	}
 
 	h1 {
-		font-size: clamp(3rem, 5vw, 4rem);
-		padding: 0 1rem;
-		line-height: 1.1;
+		font-size: clamp(3rem, 6vw, 9rem);
+	}
+
+	p {
+		font-size: clamp(1rem, 2vw, 1.7rem);
+		font-weight: 100;
 	}
 </style>
 
@@ -83,9 +90,9 @@
 
 <section>
 	{#if show}
-		<div in:fade class="card">
+		<div in:fly={{y: 50, duration: 2000}} class="card">
 			<h1 id={title}>{title}</h1>
-			<SocialLinks {links}/>
+			<p in:slide={{duration: 2000}}>{tagLine}</p>
 		</div>
 		<img 
 			loading="lazy" 
