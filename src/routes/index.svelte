@@ -29,6 +29,7 @@
 	import imageBuilder from '../utils/imageUrlBuilder'
 	import SEO from '../components/SEO.svelte'
 	import Footer from '../components/Footer.svelte'
+import SocialLinks from '../components/SocialLinks.svelte'
 	
 	export let siteSettings
 	const {title, image, alt, tagLine, description} = siteSettings
@@ -55,12 +56,11 @@
 		place-content: center;
 		background-color: rgba(0,0,0,0.69);
 		overflow: hidden;
+		padding: 0 var(--containerPadding);
 	}
 	div {
-		width: min-content;
 		margin: 0 auto;
-		/* text-align: center; */
-		padding: clamp(2rem, 5vw, 3rem);
+		max-width: 20rem;
 	}
 	
 	img {
@@ -74,12 +74,10 @@
 	}
 
 	h1 {
-		font-size: clamp(3rem, 6vw, 9rem);
+		font-size: 4rem;
 	}
-
 	p {
-		font-size: clamp(1rem, 2vw, 1.7rem);
-		font-weight: 100;
+		margin-bottom: 2rem;
 	}
 </style>
 
@@ -94,6 +92,7 @@
 		<div in:fly={{y: 50, duration: 1000}} class="card">
 			<h1 id={title}>{title}</h1>
 			<p in:slide={{duration: 1000}}>{tagLine}</p>
+			<SocialLinks />
 		</div>
 		<img 
 			loading="lazy" 
@@ -103,8 +102,3 @@
 		/>
 	{/if}
 	</section>
-<!-- <svelte:component this={P5Sketch} {sketch} id="contact-sketch"/>	 -->
-
-<Footer />
-
-
