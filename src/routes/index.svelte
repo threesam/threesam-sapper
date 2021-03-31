@@ -90,9 +90,9 @@
 
 <section>
 	{#if show}
-		<div in:fly={{y: 50, duration: 2000}} class="card">
+		<div in:fly={{y: 50, duration: 1000}} class="card">
 			<h1 id={title}>{title}</h1>
-			<p in:slide={{duration: 2000}}>{tagLine}</p>
+			<p in:slide={{duration: 1000}}>{tagLine}</p>
 		</div>
 		<img 
 			loading="lazy" 
