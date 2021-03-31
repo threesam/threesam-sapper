@@ -35,7 +35,7 @@ const sketch = (p5) => {
         //
         //map background to dark abyss
         //
-        p5.background(20)
+        p5.background(0)
         particles.forEach((p, index) => {
             //slice and start checking from index
             p.update()
