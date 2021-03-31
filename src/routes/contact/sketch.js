@@ -17,13 +17,18 @@
 
 
 
-
+function convertRemToPixels(rem) {
+    return rem * parseFloat(getComputedStyle(document.documentElement).fontSize)
+}
 
 const sketch = (p5) => {
+    // pull int out of string 
+    const headerRem = getComputedStyle(document.body).getPropertyValue('--headerHeight')[1]
+
     const particles = []
 
     p5.setup = () => {
-        p5.createCanvas(document.body.offsetWidth, p5.windowHeight)
+        p5.createCanvas(document.body.offsetWidth, p5.windowHeight - convertRemToPixels(headerRem))
 
         const particlesL = 30
         for (let i = 0; i < particlesL; i++) {
