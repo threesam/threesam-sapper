@@ -1,5 +1,6 @@
 <script>
   import {fade, slide} from 'svelte/transition'
+  import SocialLinks from '../components/SocialLinks.svelte'
 </script>
 
 <style>
@@ -28,6 +29,7 @@
 <section id="contact">
   <div class="border">
     <h2>Contact</h2>
+    <SocialLinks />
     <form in:fade name="contact" method="POST" data-netlify="true" netlify-honeypot=“bot-field”>
       <input type="hidden" name="form-name" value="contact" /> 
       
