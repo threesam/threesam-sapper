@@ -117,6 +117,6 @@
 
 <div>
   {#each links as {href, title, svg}, i}
-    <a in:scale={{delay: (i * 100) + 500, start: 0}} {href} aria-label={title}>{@html svg.code}</a>
+    <a in:scale={{delay: ((i + 1) * 100) + 500, start: 0}} {href} aria-label={title}>{@html svg.code}</a>
   {/each}
 </div>
