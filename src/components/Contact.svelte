@@ -19,12 +19,6 @@
     margin-bottom: 0.5rem;
   }
 
-  form div,
-  input {
-    width: 100%;
-
-  }
-
   h2 {
     color: var(--textColor);
     margin: 0 0 2rem 0;
