@@ -1,5 +1,6 @@
 <script>
   import {onMount} from 'svelte'
+  import {fade} from 'svelte/transition'
   import Contact from '../../components/Contact.svelte'
 
   // ssr p5 sketch
@@ -22,7 +23,7 @@
   }
 </style>
 
-<section>
+<section in:fade={{delay: 300}}>
   <svelte:component this={P5Sketch} {sketch} id="contact-sketch"/>
   <Contact/>
 </section>

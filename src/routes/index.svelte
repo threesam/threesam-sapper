@@ -28,6 +28,7 @@
 	import {slide, scale, fly} from 'svelte/transition'
 	import imageBuilder from '../utils/imageUrlBuilder'
 	import SEO from '../components/SEO.svelte'
+	import Footer from '../components/Footer.svelte'
 	
 	export let siteSettings
 	const {title, image, alt, tagLine, description} = siteSettings
@@ -104,6 +105,6 @@
 	</section>
 <!-- <svelte:component this={P5Sketch} {sketch} id="contact-sketch"/>	 -->
 
-<!-- <Contact /> -->
+<Footer />
 
 
