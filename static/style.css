@@ -161,6 +161,11 @@ blockquote a {
   border-bottom: 2px solid var(--primary);
 }
 
+p a,
+p code {
+  display: inline-block;
+}
+
 h1, h2, h3, h4, h5 {
   margin: 3rem 0 1.38rem;
   font-family: var(--headingFont);
@@ -216,6 +221,13 @@ figure {
 img {
   width: 100%;
   height: auto;
+}
+
+code {
+  background-color: var(--lightGrey);
+  color: var(--black);
+  font-size: 90%;
+  padding: 0 0.25rem;
 }
 
 textarea {
