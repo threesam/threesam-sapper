@@ -7,7 +7,7 @@
       title,
       "image": mainImage.asset->url,
       "alt": mainImage.alt,
-      "palette": mainImage.asset->metadata.palette.vibrant.background,
+      "palette": mainImage.asset->metadata.palette.darkMuted.background,
       ...
     }`
 
@@ -46,7 +46,9 @@
   <div slot="hero">
     <p>{description}</p>
     <br>
-    <a class="link" href={href}>visit site</a>
+    {#if href}
+      <a class="link" href={href}>visit site</a>
+    {/if}
   </div>
   <h3 slot="before-blocks">Case Study</h3>
   <div slot="after-blocks">
