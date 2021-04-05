@@ -34,7 +34,6 @@
 
 	export let author
 	const { name, image, alt, bio, resume} = author
-	console.log(author)
 
   // onMount(() => {
   //   document.documentElement.style.cssText = `--primary: ${palette}`
