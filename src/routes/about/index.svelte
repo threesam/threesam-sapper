@@ -2,14 +2,14 @@
 	
 	import client from '../../sanityClient'
   export async function preload() {
-		const filter = /* groq */`*[_type == "author"][0]`
+		const filter = /* groq */`*[_type == "siteSettings"][0]`
 		const projection = /* groq */`{
-          bio,
-          name,
-          // "image": image.asset->url,
-          // "alt": image.alt,
-          // "caption": image.caption,
-					// "palette": image.asset->metadata.palette.vibrant.background
+				"resume": resume.asset->{
+					url,
+					"date": _updatedAt
+				},
+				"bio": author->bio,
+				"name": author->name
       }`
       
       const query = filter + projection
@@ -23,16 +23,18 @@
 </script>
 
 <script lang="ts">
+  import Resume from '../../components/Resume.svelte';
 	import Container from '../../components/Container.svelte'
 	import SEO from '../../components/SEO.svelte'
 	import BlockContent from '@movingbrands/svelte-portable-text'
 	import serializers from '../../components/serializers'
 
 	import {blur, fly} from 'svelte/transition'
-	import {onMount} from 'svelte'
+	// import {onMount} from 'svelte'
 
 	export let author
-	const { name, image, alt, caption, bio, palette} = author
+	const { name, image, alt, bio, resume} = author
+	console.log(author)
 
   // onMount(() => {
   //   document.documentElement.style.cssText = `--primary: ${palette}`
@@ -57,4 +59,6 @@
 	<div in:fly={{duration: 1000, x: 69}}>
 		<BlockContent blocks={bio} {serializers} />
 	</div>
+	<Resume {resume} />
+	
 </Container>
