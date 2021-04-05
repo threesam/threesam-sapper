@@ -28,16 +28,10 @@
 	import SEO from '../../components/SEO.svelte'
 	import BlockContent from '@movingbrands/svelte-portable-text'
 	import serializers from '../../components/serializers'
-
 	import {blur, fly} from 'svelte/transition'
-	// import {onMount} from 'svelte'
 
 	export let author
 	const { name, image, alt, bio, resume} = author
-
-  // onMount(() => {
-  //   document.documentElement.style.cssText = `--primary: ${palette}`
-  // })
 </script>
 
 <style>
