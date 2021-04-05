@@ -65,7 +65,7 @@
         {width} 
         {height} 
         use:parentWidth 
-        src={imageBuilder(src).width(width).height(height).auto('format').url()} 
+        src={imageBuilder(src).width(width).height(height).fit('crop').crop('entropy').auto('format').url()} 
         {alt} 
         loading="lazy" 
       />
