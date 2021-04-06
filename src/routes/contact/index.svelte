@@ -1,6 +1,7 @@
 <script>
   import {onMount} from 'svelte'
   import Contact from '../../components/Contact.svelte'
+  import SEO from '../../components/SEO.svelte'
 
   // ssr p5 sketch
   import sketch from './sketch.js'
@@ -22,7 +23,9 @@
   }
 </style>
 
+<SEO title="Contact" description="Social links and contact form for Threesam" />
+
 <section>
-  <svelte:component this={P5Sketch} {sketch} id="contact-sketch"/>
   <Contact/>
+  <svelte:component this={P5Sketch} {sketch} id=" contact-sketch"/>
 </section>
