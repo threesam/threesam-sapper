@@ -15,8 +15,6 @@
 //     return rgbCol
 // }
 
-
-
 function convertRemToPixels(rem) {
     return rem * parseFloat(getComputedStyle(document.documentElement).fontSize)
 }
@@ -24,6 +22,7 @@ function convertRemToPixels(rem) {
 const sketch = (p5) => {
     // pull int out of string 
     const headerRem = getComputedStyle(document.body).getPropertyValue('--headerHeight')[1]
+    const backgroundColor = getComputedStyle(document.body).getPropertyValue('--background')
 
     const particles = []
 
@@ -40,7 +39,7 @@ const sketch = (p5) => {
         //
         //map background to dark abyss
         //
-        p5.background(0)
+        p5.background(backgroundColor)
         particles.forEach((p, index) => {
             //slice and start checking from index
             p.update()
@@ -106,7 +105,7 @@ const sketch = (p5) => {
                     //
                     //if below threshold, glow in the dark
                     //
-                    p5.stroke(100, mapA)
+                    p5.stroke(200, mapA)
                     p5.strokeWeight(2)
                     p5.line(this.pos.x, this.pos.y, particle.pos.x, particle.pos.y)
                 }
