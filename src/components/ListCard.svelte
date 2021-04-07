@@ -29,7 +29,7 @@
     margin-bottom: 2rem;
     box-shadow: var(--level-2);
     transition: all 0.3s ease-in-out;
-    border: none;
+    border: 0.125rem solid var(--darkGrey);
   }
   a:hover {
     box-shadow: var(--level-3);
