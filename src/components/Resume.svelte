@@ -9,7 +9,8 @@
 	div {
 		margin-top: 4rem;
 		padding: 2rem;
-		border: 0.125rem solid var(--cardBg);
+		border: var(--line);
+		box-shadow: var(--level-2);
 	}
 	p {
 		margin: 0 0 1rem 0;
