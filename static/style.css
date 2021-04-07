@@ -3,7 +3,7 @@
   --green: #14dd90;
   --red: #ff5470;
   --yellow: #fde24f;
-  --black: #1b2d45;
+  --black: #161f2b;
   --trueBlack: #000;
   --darkBlue: #00214d;
   --darkGrey: #111;
@@ -12,20 +12,21 @@
   --white: #fff;
 
   /* define colors' intentions */
-  --primary: var(--white);
+  --primary: var(--grey);
   --danger: var(--red);
   --background: var(--lightGrey);
   --textColor: var(--black);
-  --buttonTextColor: var(--black);
+  --buttonTextColor: var(--background);
   --lineColor: var(--grey);
   --cardBg: var(--white);
-  --headerBackground: var(--green);
+  --headerBackground: var(--background);
   --headerTextColor: var(--black);
-  --footerBackground: var(--darkGrey);
+  --footerBackground: var(--background);
+  --footerBackgroundFade: var(--grey);
   --footerTextColor: var(--black);
 
   /* Styles */
-  --line: solid 1px var(--lineColor);
+  --line: solid 0.125rem var(--lineColor);
   --baseFontSize: 100%;
   --borderRadius: 10px;
 
@@ -91,13 +92,12 @@ body {
 }
 
 body::-webkit-scrollbar-track {
-  background: var(--headerBackground);
+  background: var(--background);
 }
 
 body::-webkit-scrollbar-thumb {
   background-color: var(--primary);
-  border: 0.25rem solid var(--headerBackground);
-
+  border: 0.25rem solid var(--background);
 }
 
 /* header */
@@ -130,7 +130,7 @@ header nav div {
 /* footer */
 footer {
   color: var(--footerTextColor);
-  background: linear-gradient(var(--footerBackground), black);
+  background: linear-gradient(var(--footerBackground), var(--footerBackgroundFade));
   display: grid;
   place-content: center;
   /* padding: 2rem var(--containerPadding); */
@@ -214,6 +214,12 @@ input, textarea {
   width: 100%;
 }
 
+input:focus,
+textarea:focus {
+  outline-color: black;
+  outline-width: 0.125rem;
+}
+
 figure {
   max-width: 100%;
   height: auto;
@@ -246,19 +252,19 @@ hr {
 }
 
 button {
-  --buttonColor: var(--primary);
+  --buttonColor: var(--textColor);
   appearance: none;
   color: var(--buttonTextColor);
   background: var(--buttonColor);
   border: none;
   border-radius: 10px;
-  padding: 7px 25px;
+  padding: 10px 25px 5px 25px;
   box-shadow: var(--level-1);
   transition: 0.3s ease-in-out box-shadow;
 }
 
 button:hover {  
-  box-shadow: var(--level-2);
+  box-shadow: var(--level-4);
 }
 
 button[disabled] {
@@ -339,21 +345,21 @@ button.small {
 
 .dark {
   --cardBg: var(--darkGrey);
-  --background: var(--black);
+  --background: var(--trueBlack);
   --textColor: var(--lightGrey);
   --buttonTextColor: var(--trueBlack);
   --headerBackground: var(--darkGrey);
   --headerTextColor: var(--white);
   --footerBackground: var(--darkGrey);
+  --footerBackgroundFade: var(--trueBlack);
 }
 
-.oled {
-  /* specificity of this on body, means that redefining black will change it everywhere :) */
-  --black: #000;
+/* specificity of this on body, means that redefining black will change it everywhere :) */
+/* .oled {
   --cardBg: var(--darkGrey);
   --headerBackground: var(--darkGrey);
   --footerBackground: var(--darkGrey);
-}
+} */
 
 
 /* CSS specificity: least to most */
