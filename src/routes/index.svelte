@@ -27,7 +27,6 @@
   import { slide, scale, fly } from 'svelte/transition'
   import imageBuilder from '../utils/imageUrlBuilder'
   import SEO from '../components/SEO.svelte'
-  import Footer from '../components/Footer.svelte'
   import SocialLinks from '../components/SocialLinks.svelte'
 
   export let siteSettings
