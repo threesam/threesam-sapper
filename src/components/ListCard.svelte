@@ -1,5 +1,6 @@
 <script>
   import imageBuilder from '../utils/imageUrlBuilder'
+  import SplashFilter from './SplashFilter.svelte'
   import { stores } from '@sapper/app';
 	const { page } = stores();
   export let data
@@ -51,17 +52,6 @@
     padding: 2rem;
     width: 100%;
   }
-  
-  .filter {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    background-color: var(--background);
-    opacity: 0.69;
-    z-index: -10;
-  }
   .center {
     text-align: center;
   }
@@ -90,7 +80,7 @@
         {alt} 
         loading="lazy" 
       />
-      <div role="none" class="filter"></div>
+      <SplashFilter />
     </a></li>
   {/each}
 </ul>

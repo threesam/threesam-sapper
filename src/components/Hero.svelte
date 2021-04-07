@@ -1,6 +1,7 @@
 <script>
   import {onMount} from 'svelte'
   import {scale} from 'svelte/transition'
+	import SplashFilter from './SplashFilter.svelte'
 
 	export let data
 	const {image: src, alt, title} = data
@@ -17,7 +18,6 @@
 		display: grid;
 		place-content: center;
 		text-align: center;
-		background-color: rgba(0,0,0,0.69);
 		overflow: hidden;
 		padding: var(--containerPadding);
 	}
@@ -46,5 +46,6 @@
 			<slot/>
 		</div>
 		<img in:scale={{duration:2000, start: 1.2, opacity: 0.2}} {src} {alt}>
+		<SplashFilter />
 	{/if}
 </section>
