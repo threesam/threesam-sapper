@@ -20,6 +20,7 @@
 		text-align: center;
 		overflow: hidden;
 		padding: var(--containerPadding);
+		box-shadow: var(--level-1);
 	}
 	
 	img {
