@@ -22,23 +22,23 @@ function convertRemToPixels(rem) {
 const sketch = (p5) => {
     // pull int out of string 
     const headerRem = getComputedStyle(document.body).getPropertyValue('--headerHeight')[1]
-    const backgroundColor = getComputedStyle(document.body).getPropertyValue('--background')
-
+    
     const particles = []
-
+    
     p5.setup = () => {
         p5.createCanvas(document.body.offsetWidth, p5.windowHeight - convertRemToPixels(headerRem))
-
+        
         const particlesL = 30
         for (let i = 0; i < particlesL; i++) {
             particles.push(new Particle())
         }
     }
-
+    
     p5.draw = () => {
         //
         //map background to dark abyss
         //
+        const backgroundColor = getComputedStyle(document.body).getPropertyValue('--background')
         p5.background(backgroundColor)
         particles.forEach((p, index) => {
             //slice and start checking from index
