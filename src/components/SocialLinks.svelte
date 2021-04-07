@@ -105,12 +105,12 @@
   }
 
   a {
-    color: var(--grey);
+    color: var(--textColor);
     transition: all 0.3s;
   }
 
   a:hover {
-    color: var(--primary);
+    /* color: var(--primary); */
     transform: scale(1.2);
   }
 </style>
