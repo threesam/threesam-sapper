@@ -23,14 +23,18 @@
     place-content: center;
     position: relative;
     width: 100%;
-    padding: 2rem;
 		border-radius: 13px;
     overflow: hidden;
     margin-bottom: 2rem;
+    box-shadow: var(--level-2);
+    transition: all 0.3s ease-in-out;
+    border: none;
+  }
+  a:hover {
+    box-shadow: var(--level-3);
   }
   h2 {
     font-size: 2rem;
-    text-shadow: 0 0 3px black;
     margin: 0;
   }
   img {
@@ -39,9 +43,24 @@
     left: -10%;
     width: 120%;
     height: 120%;
-    z-index: -10;
+    z-index: -20;
     object-fit: cover;
-    filter: brightness(40%);
+  }
+  
+  .content {
+    padding: 2rem;
+    width: 100%;
+  }
+  
+  .filter {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: var(--background);
+    opacity: 0.69;
+    z-index: -10;
   }
   .center {
     text-align: center;
@@ -51,16 +70,18 @@
 <ul>
   {#each data as {slug, title, image: src, alt, palette, description, href}}
     <li><a
-      style={`height: ${height}px; border: 0.125rem solid ${palette};`}
+      style={`height: ${height}px;`}
       rel="prefetch" 
       href="{$page.path}/{slug}">
-      <h2 class:center={$page.path === '/thoughts' ? 'center' : ''}>{title}</h2>
-      {#if description}
+      <div class="content">
+        <h2 class:center={$page.path === '/thoughts' ? 'center' : ''}>{title}</h2>
+        {#if description}
         <p>{description}</p>
-      {/if}
-      {#if href}
+        {/if}
+        {#if href}
         <a href={href}>visit site</a>
-      {/if}
+        {/if}
+      </div>
       <img 
         {width} 
         {height} 
@@ -69,6 +90,7 @@
         {alt} 
         loading="lazy" 
       />
+      <div role="none" class="filter"></div>
     </a></li>
   {/each}
 </ul>
