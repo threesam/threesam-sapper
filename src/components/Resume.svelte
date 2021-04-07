@@ -10,6 +10,7 @@
 		margin-top: 4rem;
 		padding: 2rem;
 		border: var(--line);
+		border-radius: var(--borderRadius);
 		box-shadow: var(--level-2);
 	}
 	p {
