@@ -1,6 +1,4 @@
 <script>
-  import {onMount, afterUpdate} from 'svelte'
-
   let darkMode = true
   function changeTheme() {
     // grab body
@@ -8,12 +6,10 @@
 
     // if lightMode
     if(darkMode === false) {
-      body.classList.add('oled')
       body.classList.add('dark')
       darkMode = true
       console.log(body)
     } else {
-      body.classList.remove('oled')
       body.classList.remove('dark')
       console.log(body)
       darkMode = false
@@ -24,6 +20,7 @@
 <style>
   svg {
     cursor: pointer;
+    text-shadow: 0 0 5px red;
   }
 </style>
 
