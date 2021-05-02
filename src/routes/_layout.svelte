@@ -1,6 +1,7 @@
 <script lang="ts">
 	import Nav from '../components/Nav.svelte';
 	import Theme from '../components/Theme.svelte';
+	import Footer from '../components/Footer.svelte';
 	
 	// reset primary color
 	import {beforeUpdate} from 'svelte'
@@ -35,6 +36,8 @@ div {
 <main>
 	<slot/>
 </main>
+
+<Footer />
 
 <div>	
 	<Theme />

@@ -9,8 +9,8 @@
       viewBox="0 0 15 15"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      width="30"
-      height="30">
+      width="20"
+      height="20">
       <path
         d="M9.358 2.145a8.209 8.209 0 00-3.716
         0c-.706-.433-1.245-.632-1.637-.716a2.17 2.17 0 00-.51-.053 1.258 1.258 0
@@ -40,8 +40,8 @@
       viewBox="0 0 15 15"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      width="30"
-      height="30">
+      width="20"
+      height="20">
       <path
         fill-rule="evenodd"
         clip-rule="evenodd"
@@ -60,8 +60,8 @@
       viewBox="0 0 15 15"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      width="30"
-      height="30">
+      width="20"
+      height="20">
       <path d="M7.5 5a2.5 2.5 0 100 5 2.5 2.5 0 000-5z" fill="currentColor" />
       <path
         fill-rule="evenodd"
@@ -81,8 +81,8 @@
         viewBox="0 0 15 15"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
-        width="30"
-        height="30">
+        width="20"
+        height="20">
         <path
           d="M2.5 0A2.5 2.5 0 000 2.5v2C0 10.299 4.701 15 10.5 15h2a2.5 2.5 0
           002.5-2.5v-1.382a1.5 1.5 0 00-.83-1.342l-2.415-1.208a1.5 1.5 0
@@ -101,16 +101,19 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 0.5rem;
   }
 
   a {
     color: var(--textColor);
     transition: all 0.3s;
+    margin: 0 0.5rem;
+    display: flex;
+    align-items: center;
   }
 
   a:hover {
     /* color: var(--primary); */
+
     transform: scale(1.2);
   }
 </style>

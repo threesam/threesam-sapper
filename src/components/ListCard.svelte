@@ -34,8 +34,8 @@
   a:hover {
     box-shadow: var(--level-3);
   }
-  h2 {
-    font-size: 2rem;
+  h3 {
+    font-size: var(--h3);
     margin: 0;
   }
   img {
@@ -62,9 +62,9 @@
     <li><a
       style={`height: ${height}px;`}
       rel="prefetch" 
-      href="{$page.path}/{slug}">
+      href="projects/{slug}">
       <div class="content">
-        <h2 class:center={$page.path === '/thoughts' ? 'center' : ''}>{title}</h2>
+        <h3 class:center={$page.path === '/thoughts' ? 'center' : ''}>{title}</h3>
         {#if description}
         <p>{description}</p>
         {/if}

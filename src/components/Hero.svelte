@@ -13,7 +13,7 @@
 <style>
 	section {
 		position: relative;
-		height: 100vh;
+		height: 90vh;
 		width: 100%;
 		display: grid;
 		place-content: center;
@@ -21,6 +21,7 @@
 		overflow: hidden;
 		padding: var(--containerPadding);
 		box-shadow: var(--level-1);
+		clip-path: polygon( 0 0, 100% 0, 100% calc(100% - 1rem - 25px), 0 100%);
 	}
 	
 	img {

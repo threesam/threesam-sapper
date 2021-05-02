@@ -1,8 +1,7 @@
 <script context="module">
   import client from '../sanityClient'
   export async function preload() {
-    const filter = /* groq */ `*[_type == "siteSettings"][0]`
-    const projection = /* groq */ `{
+    const siteSettings = /* groq */ `*[_type == "siteSettings"][0]{
           tagLine,
 					description,
           title,
@@ -11,26 +10,48 @@
           "caption": mainImage.caption,
 					"palette": mainImage.asset->metadata.palette.lightMuted.background,
       }`
+    
+    const projects = /* groq */`*[_type == 'project']{
+			"slug": slug.current,
+			title,
+			"palette": mainImage.asset->metadata.palette.darkMuted.background,
+			"image": mainImage.asset->url,
+			"alt": mainImage.alt,
+			description
+		}`
 
-    const query = filter + projection
+    const query = `{
+      "settings": ${siteSettings},
+      "projects": ${projects},
+    }`
 
-    const siteSettings = await client
+    const data = await client
       .fetch(query)
       .catch((err) => this.error(500, err))
 
-    return { siteSettings }
+    return { data }
   }
 </script>
 
 <script lang="ts">
+  export let data
+  const {settings,projects} = data
+  const { title, image, alt, tagLine, description } = settings
+
+  // imports
   import { onMount } from 'svelte'
   import { slide, scale, fly } from 'svelte/transition'
   import imageBuilder from '../utils/imageUrlBuilder'
-  import SEO from '../components/SEO.svelte'
-  import SocialLinks from '../components/SocialLinks.svelte'
+  import {darkMode} from '../utils/store'
+  import { stores } from '@sapper/app';
+	const { page } = stores();
 
-  export let siteSettings
-  const { title, image, alt, tagLine, description } = siteSettings
+
+  // components
+  import SEO from '../components/SEO.svelte'
+  import Container from '../components/Container.svelte'
+	import ListCard from '../components/ListCard.svelte'
+
 
   let innerW
   let innerH
@@ -39,20 +60,21 @@
   let show = false
   onMount(() => {
     show = true
-    document.documentElement.style.cssText = `--primary: ${siteSettings.palette}`
+    // document.documentElement.style.cssText = `--primary: ${siteSettings.palette}`
   })
 </script>
 
 <style>
   section {
     position: relative;
-    height: 100vh;
+    height: calc(100vh - var(--headerHeight));
     width: 100%;
     display: grid;
     place-content: center;
     background-color: rgba(0, 0, 0, 0.69);
     overflow: hidden;
     padding: 0 var(--containerPadding);
+    clip-path: polygon( 0 0, 100% 0, 100% calc(100% - 1rem - 25px), 0 100%);
   }
   div {
     margin: 0 auto;
@@ -70,14 +92,17 @@
   }
 
   h1 {
-    font-size: 4rem;
+    font-size: var(--bigH);
+  }
+  h2 {
+    font-size: var(--h1);
   }
   p {
     margin-bottom: 2rem;
   }
 </style>
 
-<SEO {...siteSettings} />
+<SEO {...data.settings} />
 
 <svelte:window bind:innerWidth={innerW} bind:innerHeight={innerH} />
 
@@ -85,13 +110,25 @@
   {#if show}
     <div in:fly={{ y: 50, duration: 1000 }} class="card">
       <h1 id={title}>{title}</h1>
-      <p in:slide={{ duration: 1000 }}>{tagLine}</p>
-      <SocialLinks />
+      <p in:slide={{ duration: 1000 }}>{tagLine} Let's <a href="#contact">talk.</a></p>
     </div>
+    {#if $darkMode}
     <img
       loading="lazy"
       in:scale={{ duration: 2000, start: 1.2, opacity: 0.2 }}
       src={imageBuilder(image).width(innerW).height(innerH).url()}
       {alt} />
+    {:else}
+    <img
+      loading="lazy"
+      in:scale={{ duration: 2000, start: 1.2, opacity: 0.2 }}
+      src={imageBuilder(image).width(innerW).height(innerH).flipHorizontal().flipVertical().url()}
+      {alt} />
+    {/if}
   {/if}
 </section>
+
+<Container>
+	<h2>Projects</h2>
+	<ListCard data={projects} />
+</Container>

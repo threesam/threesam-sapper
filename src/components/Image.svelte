@@ -46,7 +46,6 @@
 
 <img 
   {width}
-  height={width}
   use:parentWidth 
   class:loaded
   src={imageBuilder(url).width(width).height(width).auto('format').url()} 

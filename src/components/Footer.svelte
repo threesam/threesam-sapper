@@ -1,6 +1,8 @@
 <script>
   import Contact from './Contact.svelte'
    import {onMount} from 'svelte'
+   import { stores } from '@sapper/app';
+	const { page } = stores();
   
   onMount(()=> {
     const section = document.querySelector('footer')
@@ -39,13 +41,24 @@
   footer {
     display: grid;
     place-content: center;
-    height: 100vh;
+    height: 90vh;
     width: 100%;
     position: relative;
     overflow: hidden;
+    clip-path: polygon( 0 0, 100% calc(1rem + 25px), 100% 100%, 0 100%);
+  }
+
+  p {
+    position: absolute;
+    bottom: var(--containerPadding);
+    width: 100%;
+    text-align: center;
+    color: var(--textColor);
+    font-family: var(--headingFont);
   }
 </style>
 
-<footer id="footer-contact">
+<footer id="contact">
   <Contact/>
+  <p>© threeSam development 2018-2021</p>
 </footer>

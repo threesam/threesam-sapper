@@ -33,6 +33,7 @@
   /* Type */
   --headingFont: 'Unica One', cursive;
   --bodyFont: 'Vollkorn', serif;
+  --bigH: 3.75rem;
   --h1: 3.052rem;
   --h2: 2.441rem;
   --h3: 1.953rem;
@@ -64,7 +65,6 @@
 html {
   font-size: var(--baseFontSize);
   box-sizing: border-box;
-  scroll-behavior: smooth;
 } /*18px*/
 
 *,
