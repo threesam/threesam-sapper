@@ -22,7 +22,6 @@
 		padding: var(--containerPadding);
 	}
 	section {
-		max-width: 30rem;
 		padding: 3rem;
 		border: 0.125rem solid var(--textColor);
 		position: relative;
