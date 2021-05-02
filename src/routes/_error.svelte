@@ -72,14 +72,12 @@
 		
 		{#if status === 404}
 			<p>Path "{$page.path}" does not exist</p>
+			<hr>
+			<p>Maybe go back <a href="/">home</a> and you can find what you're looking for</p>
 		{:else}
 			<p>{error.message}</p>
 		{/if}
 
-		<hr>
-		
-		<p>Maybe go back <a href="/">home</a> and you can find what you're looking for</p>
-		
 		{#if dev && error.stack}
 		<pre>{error.stack}</pre>
 		{/if}
