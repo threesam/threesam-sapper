@@ -100,53 +100,6 @@ body::-webkit-scrollbar-thumb {
   border: 0.25rem solid var(--background);
 }
 
-/* header */
-header {
-  position: fixed;
-  left: 0;
-  top: 0;
-  width: 100%;
-  color: var(--headerTextColor);
-  height: var(--headerHeight);
-  background: var(--headerBackground);
-  box-shadow: var(--level-2);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 var(--containerPadding);
-  z-index: 10;
-}
-
-header nav a {
-  color: inherit;
-  text-decoration: none;
-}
-
-header nav a + a,
-header nav div {
-  margin-left: 10px;
-}
-
-/* footer */
-footer {
-  color: var(--footerTextColor);
-  background: linear-gradient(var(--footerBackground), var(--footerBackgroundFade));
-  display: grid;
-  place-content: center;
-  /* padding: 2rem var(--containerPadding); */
-  /* text-align: center; */
-}
-
-footer p {
-  margin-bottom: 0;
-  max-width: none;
-}
-
-/* css variables bubble up, even though not in root scope */
-footer a {
-  color: var(--footerTextColor);
-}
-
 p {
   margin-bottom: 1rem;
   max-width: 40em;

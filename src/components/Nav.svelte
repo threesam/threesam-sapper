@@ -8,7 +8,29 @@
 
 <style>
 header {
-	display: relative;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  color: var(--headerTextColor);
+  height: var(--headerHeight);
+  background: var(--headerBackground);
+  box-shadow: var(--level-2);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 var(--containerPadding);
+  z-index: 10;
+}
+
+header nav a {
+  color: inherit;
+  text-decoration: none;
+}
+
+header nav a + a,
+header nav div {
+  margin-left: 10px;
 }
 
 div {
@@ -20,6 +42,7 @@ div {
 }
 
 	a {
+		font-family: var(--headingFont);
 		font-weight: 100;
 	}
 	.active {
@@ -35,7 +58,7 @@ div {
 	</div>
 
 	<nav>
-		<a rel="prefetch" class={segment === "about" ? 'active' : ""} aria-current="{segment === 'about' ? 'page' : undefined}" href="about">about</a>
+		<a rel="prefetch" class={segment === "about" ? 'active' : ""} aria-current="{segment === 'about' ? 'page' : undefined}" href="about">about me</a>
 		<!-- <a href="#{$page.path ? $page.path : 'home'}-contact">contact</a> -->
 	</nav>
 		

@@ -4,6 +4,8 @@
   import { stores } from '@sapper/app';
 	const { page } = stores();
 
+  const host = 'https://threesam.com'
+
   const SEO_IMAGE_WIDTH = 1200
   const SEO_IMAGE_HEIGHT = 1200
   const TWITTER_IMAGE_HEIGHT = 628
@@ -25,7 +27,7 @@
     openGraph={{
       title,
       description,
-      url: $page.host + $page.path,
+      url: host + $page.path,
       type: 'article',
       article: {
       publishedTime: publishedAt,
@@ -59,7 +61,7 @@
   openGraph={{
     title,
     description,
-    url: $page.host + $page.path,
+    url: host + $page.path,
     type: 'website',
     images: [
       {

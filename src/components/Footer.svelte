@@ -46,6 +46,8 @@
     position: relative;
     overflow: hidden;
     clip-path: polygon( 0 0, 100% calc(1rem + 25px), 100% 100%, 0 100%);
+    background: linear-gradient(var(--footerBackground), var(--footerBackgroundFade));
+    color: var(--footerTextColor);
   }
 
   p {
