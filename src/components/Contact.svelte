@@ -1,6 +1,47 @@
 <script>
   import {fade} from 'svelte/transition'
-  import SocialLinks from '../components/SocialLinks.svelte'
+  // import axios from 'axios'
+
+  let name, email, message, err, sent, buttonText = "Send"
+
+  $: data = {
+    name,
+    email,
+    message
+  }
+
+  const resetForm = () => {
+    name = ""
+    email = ""
+    message = ""
+    buttonText = "Send"
+    err = ""
+    sent = false
+  }
+
+  // const handleSubmit = (data) => {
+  //   buttonText = 'Sending...'
+    
+  //   axios.post('/api/sendmail', data)
+  //     .then(res => {
+  //       if(res.data.result !== 'success') {
+  //         sent = false
+  //         buttonText = 'Failed to Send'
+  //         setTimeout(() => {
+  //           resetForm()
+  //         }, 6969)
+  //       } else {
+  //         sent = true
+  //         buttonText = 'Succesfully Sent'
+  //         setTimeout(() => {
+  //           resetForm()
+  //         }, 6969)
+  //       }
+  //     })
+  //     .catch(e => {
+  //       buttonText = 'Failed to Send'
+  //     })
+  // }
 </script>
 
 <style>
@@ -32,26 +73,27 @@
 
 <div in:fade class="border">
   <h2>Contact</h2>
-  <!-- <SocialLinks /> -->
   <form in:fade name="contact" method="POST" data-netlify="true" netlify-honeypot=“bot-field”>
     <input type="hidden" name="form-name" value="contact" /> 
+
+    <pre>{JSON.stringify(data)}</pre>
     
     <div>
       <label for="name">Name</label>
-      <input id="name" type="name" name="name" />
+      <input bind:value={name} id="name" type="name" name="name" />
     </div>
     
     <div>
       <label for="email">Email</label>
-      <input id="email" type="email" name="email" />
+      <input bind:value={email} id="email" type="email" name="email" />
     </div>
     
     <div>
       <label for="message">Message
-        <textarea id="messsage" name="message" />
+        <textarea bind:value={message} id="messsage" name="message" />
       </label>
     </div>
     
-    <button type="submit">Send</button>
+    <button type="submit">{buttonText}</button>
   </form>
 </div>

@@ -1,34 +1,36 @@
-const nodemailer = require('nodemailer')
+// const nodemailer = require('nodemailer')
 
-exports.handler = function (event, context, callback) {
-  let transporter = nodemailer.createTransport({
-    host: 'smtp.gmail.com',
-    port: 465,
-    secure: true,
-    auth: {
-      type: 'OAuth2',
-      user: process.env.MAIL_LOGIN,
-      clientId: process.env.CLIENT_ID,
-      clientSecret: process.env.CLIENT_SECRET,
-      refreshToken: process.env.REFRESH_TOKEN,
-      accessToken: process.env.ACCESS_TOKEN
-    }
-  })
-  console.log(event.body)
+// exports.handler = function (event, context, callback) {
 
-  transporter.sendMail({
-    from: process.env.MAIL_LOGIN,
-    to: process.env.MAIL_TO,
-    subject: process.env.SUBJECT + new Date().toLocaleString(),
-    text: event.body
-  }, function (error, info) {
-    if (error) {
-      callback(error)
-    } else {
-      callback(null, {
-        statusCode: 200,
-        body: "Ok"
-      })
-    }
-  })
-}
+//   let data = JSON.parse(event.body)
+
+//     let transporter = nodemailer.createTransport({
+//       host: process.env.SMTP_SERVER,
+//       port: process.env.SMTP_SERVER_PORT,
+//       auth: {
+//         user: process.env.SMTP_USERNAME,
+//         pass: process.env.SMTP_PASSWORD
+//     }
+//     });
+
+//     transporter.sendMail({
+//       from: process.env.SERVER_EMAIL,
+//       to: process.env.RECIPIENT_EMAIL,
+//       subject: `Sending with React, Nodemailer and Netlify`,
+//       html: `
+//             <h3>Email from ${data.name} ${data.email}<h3>
+//             <p>${data.message}<p>
+//             `
+//     }, function (error, info) {
+//         if (error) {
+//           callback(error);
+//         } else {
+//             callback(null, {
+//             statusCode: 200,
+//               body: JSON.stringify({
+//                 'result': 'success'
+//                 })
+//             });
+//         }
+//     });
+// }

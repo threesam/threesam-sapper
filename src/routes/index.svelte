@@ -93,6 +93,7 @@
 
   h1 {
     font-size: var(--bigH);
+    width: 100%;
   }
   h2 {
     font-size: var(--h1);
