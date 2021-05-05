@@ -76,7 +76,7 @@
   <form in:fade name="contact" method="POST" data-netlify="true" netlify-honeypot=“bot-field”>
     <input type="hidden" name="form-name" value="contact" /> 
 
-    <pre>{JSON.stringify(data)}</pre>
+    <!-- <pre>{JSON.stringify(data)}</pre> -->
     
     <div>
       <label for="name">Name</label>
