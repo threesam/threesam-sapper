@@ -45,16 +45,9 @@ import CardLinks from '../../components/CardLinks.svelte'
 
 <Article data={project}>
   <div slot="hero">
-    <p>
-      {description}
-      <!-- <br>
-      <br>
-      {#if href}
-      <a {href}>visit site</a>
-      {/if} -->
-    </p>
+    <p>{description}</p>
   </div>
-  <h3 slot="before-blocks">Case Study</h3>
+  <h2 slot="before-blocks">Case Study</h2>
   <div slot="after-blocks">
     <h4>Tech</h4>
     {#each tags as {value}, index}

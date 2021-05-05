@@ -35,7 +35,7 @@
 	}
 
 	h1 {
-		font-size: clamp(3rem, 5vw, 4rem);
+		font-size: clamp(var(--h1), 5vw, var(--bigH));
 		padding: 0 1rem;
 		line-height: 1.1;
 	}
