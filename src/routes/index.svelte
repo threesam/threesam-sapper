@@ -14,6 +14,8 @@
     const projects = /* groq */`*[_type == 'project']{
 			"slug": slug.current,
 			title,
+      href,
+      repo,
 			"palette": mainImage.asset->metadata.palette.darkMuted.background,
 			"image": mainImage.asset->url,
 			"alt": mainImage.alt,

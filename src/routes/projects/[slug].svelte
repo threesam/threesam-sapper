@@ -24,10 +24,11 @@
   import SEO from '../../components/SEO.svelte'
   
   export let project
-  const {title, image, alt, palette, description, href, tags} = project
+  const {title, image, alt, palette, description, href, repo, tags} = project
 
   // match primary color to media palette
   import {onMount} from 'svelte'
+import CardLinks from '../../components/CardLinks.svelte'
   onMount(() => {
     document.documentElement.style.cssText = `--primary: ${palette}`
   })
@@ -46,9 +47,7 @@
   <div slot="hero">
     <p>{description}</p>
     <br>
-    {#if href}
-      <a class="link" href={href}>visit site</a>
-    {/if}
+    <CardLinks {href} {repo}
   </div>
   <h3 slot="before-blocks">Case Study</h3>
   <div slot="after-blocks">

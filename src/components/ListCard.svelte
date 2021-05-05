@@ -1,9 +1,9 @@
 <script>
-  import imageBuilder from '../utils/imageUrlBuilder'
-  import SplashFilter from './SplashFilter.svelte'
-  import { stores } from '@sapper/app';
-	const { page } = stores();
   export let data
+  import imageBuilder from '../utils/imageUrlBuilder'
+
+  import SplashFilter from './SplashFilter.svelte'
+  import CardLinks from './CardLinks.svelte';
 
   let width
   let height = 350
@@ -58,18 +58,15 @@
 </style>
 
 <ul>
-  {#each data as {slug, title, image: src, alt, palette, description, href}}
-    <li><a
-      style={`height: ${height}px;`}
+  {#each data as {slug, title, image: src, alt, palette, description, href, repo}}
+    <li class="umami--click--project-{slug}"><a
+      style="height: {height}px; border: 0.125rem solid {palette}"
       rel="prefetch" 
       href="projects/{slug}">
       <div class="content">
-        <h3 class:center={$page.path === '/thoughts' ? 'center' : ''}>{title}</h3>
+        <h3>{title}</h3>
         {#if description}
         <p>{description}</p>
-        {/if}
-        {#if href}
-        <a href={href}>visit site</a>
         {/if}
       </div>
       <img 
@@ -80,6 +77,7 @@
         {alt} 
         loading="lazy" 
       />
+      <CardLinks {href} {repo} />
       <SplashFilter />
     </a></li>
   {/each}
