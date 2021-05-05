@@ -47,7 +47,7 @@ import CardLinks from '../../components/CardLinks.svelte'
   <div slot="hero">
     <p>{description}</p>
     <br>
-    <CardLinks {href} {repo}
+    <CardLinks {href} {repo} />
   </div>
   <h3 slot="before-blocks">Case Study</h3>
   <div slot="after-blocks">
