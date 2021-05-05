@@ -7,7 +7,7 @@
       title,
       "image": mainImage.asset->url,
       "alt": mainImage.alt,
-      "palette": mainImage.asset->metadata.palette.darkMuted.background,
+      "palette": mainImage.asset->metadata.palette.vibrant.background,
       ...
     }`
 
