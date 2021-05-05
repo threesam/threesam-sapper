@@ -8,10 +8,10 @@
           "image": mainImage.asset->url,
           "alt": mainImage.alt,
           "caption": mainImage.caption,
-					"palette": mainImage.asset->metadata.palette.lightMuted.background,
+					"palette": mainImage.asset->metadata.palette.vibrant.background,
       }`
     
-    const projects = /* groq */`*[_type == 'project']{
+    const projects = /* groq */`*[_type == 'project']|order(order asc){
 			"slug": slug.current,
 			title,
       href,
@@ -62,7 +62,7 @@
   let show = false
   onMount(() => {
     show = true
-    // document.documentElement.style.cssText = `--primary: ${siteSettings.palette}`
+    document.documentElement.style.cssText = `--primary: ${settings.palette}`
   })
 </script>
 
