@@ -57,6 +57,7 @@
     text-align: center;
     color: var(--textColor);
     font-family: var(--headingFont);
+    max-width: none;
   }
 </style>
 
