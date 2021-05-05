@@ -1,5 +1,5 @@
 <script>
-  export let href, repo
+  export let href, repo, relative = false
 </script>
 
 <style>
@@ -12,13 +12,23 @@
     padding: 1rem;
   }
 
+  .relative {
+    position: relative;
+    justify-content: flex-start;
+    padding: 3rem 0;
+  }
+
   a {
     border-bottom: none;
+    color: inherit;
+  }
+
+  a:nth-last-of-type(1) {
     margin-left: 0.75rem;
   }
 </style>
 
-<div>
+<div class:relative>
   {#if href}
     <a href={href}>
       <svg viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg" width="30" height="30"><path d="M4.5 6.5L1.328 9.672a2.828 2.828 0 104 4L8.5 10.5m2-2l3.172-3.172a2.829 2.829 0 00-4-4L6.5 4.5m-2 6l6-6" stroke="currentColor"></path></svg>

@@ -45,16 +45,22 @@ import CardLinks from '../../components/CardLinks.svelte'
 
 <Article data={project}>
   <div slot="hero">
-    <p>{description}</p>
-    <br>
-    <CardLinks {href} {repo} />
+    <p>
+      {description}
+      <!-- <br>
+      <br>
+      {#if href}
+      <a {href}>visit site</a>
+      {/if} -->
+    </p>
   </div>
   <h3 slot="before-blocks">Case Study</h3>
   <div slot="after-blocks">
     <h4>Tech</h4>
     {#each tags as {value}, index}
-      <!-- print tag plus separator, except last element -->
-      <span> <em>{value} {index !== tags.length - 1 ? '-' : ''}</em> </span>
+    <!-- print tag plus separator, except last element -->
+    <span> <em>{value} {index !== tags.length - 1 ? '-' : ''}</em> </span>
     {/each}
+    <CardLinks relative {href} {repo} />
   </div>
 </Article>
