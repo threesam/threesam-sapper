@@ -16,7 +16,7 @@
 			title,
       href,
       repo,
-			"palette": mainImage.asset->metadata.palette.darkMuted.background,
+			"palette": mainImage.asset->metadata.palette.vibrant.background,
 			"image": mainImage.asset->url,
 			"alt": mainImage.alt,
 			description

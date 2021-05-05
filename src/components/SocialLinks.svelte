@@ -113,7 +113,7 @@
 
   a:hover {
     /* color: var(--primary); */
-
+    color: var(--primary);
     transform: scale(1.2);
   }
 </style>

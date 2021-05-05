@@ -61,6 +61,6 @@ import CardLinks from '../../components/CardLinks.svelte'
     <!-- print tag plus separator, except last element -->
     <span> <em>{value} {index !== tags.length - 1 ? '-' : ''}</em> </span>
     {/each}
-    <CardLinks relative {href} {repo} />
+    <CardLinks relative {href} {repo} {palette} />
   </div>
 </Article>

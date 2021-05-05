@@ -77,7 +77,7 @@
         {alt} 
         loading="lazy" 
       />
-      <CardLinks {href} {repo} />
+      <CardLinks {href} {repo} {palette} />
       <SplashFilter />
     </a></li>
   {/each}
