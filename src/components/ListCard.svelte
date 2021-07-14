@@ -62,6 +62,7 @@
     <li class="umami--click--project-{slug}"><a
       style="height: {height}px; border: 0.125rem solid {palette}"
       rel="prefetch" 
+      data-testid="projects-list-project"
       href="projects/{slug}">
       <div class="content">
         <h3>{title}</h3>
