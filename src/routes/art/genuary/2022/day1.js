@@ -1,4 +1,6 @@
-export default function (p5) {
+import { getHeaderHeightPixels, getStyle } from '../../../../utils/artStuff'
+
+export const day1 = (p5) => {
   const w = document.body.offsetWidth // viewport width
   const h = p5.windowHeight - getHeaderHeightPixels() // viewport height
   const isLandscape = w > h
