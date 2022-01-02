@@ -25,7 +25,6 @@ export const day2 = (p5) => {
         a
       })
     }
-    console.log(rings)
   }
 
   p5.draw = () => {
