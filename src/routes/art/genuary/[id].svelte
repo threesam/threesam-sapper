@@ -57,6 +57,7 @@
     top: var(--headerHeight);
     left: 0;
     width: 100%;
+    max-width: unset;
     background: linear-gradient(var(--background), rgba(0,0,0,0));
   }
   h1, p {

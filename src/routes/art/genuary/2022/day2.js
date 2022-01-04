@@ -8,10 +8,12 @@ export const day2 = (p5) => {
   const ringsAmount = 100
   const rings = []
 
-  let count = 0
+  const seed = Math.floor(p5.random(1000000))
 
   p5.setup = () => {
     p5.createCanvas(w, h)
+
+    p5.noiseSeed(seed)
 
     for (let i = 0; i < ringsAmount; i++) {
       // const r = p5.map(p5.noise(0.069 * i + 1), 0, 1, 0, 255)
@@ -56,5 +58,10 @@ export const day2 = (p5) => {
 
   p5.windowResized = () => {
     p5.resizeCanvas(w, h)
+  }
+
+  p5.mouseClicked = () => {
+    console.log('downloading')
+    p5.saveCanvas(`rings-s${seed}`, 'png')
   }
 }
