@@ -17,5 +17,11 @@
     <li>
       <a href="/art/genuary/4">Day 4</a>
     </li>
+    <li>
+      <a href="/art/genuary/5">Day 5</a>
+    </li>
+    <li>
+      <a href="/art/genuary/6">Day 6</a>
+    </li>
   </ul>
 </Container>
