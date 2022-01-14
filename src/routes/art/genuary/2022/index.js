@@ -8,6 +8,8 @@ import { day7 } from "./day7"
 import { day8 } from "./day8"
 import { day9 } from "./day9"
 import { day10 } from "./day10"
+import { day12 } from "./day12"
+import { day13 } from "./day13"
 
 export default {
   day1,
@@ -19,5 +21,7 @@ export default {
   day7,
   day8,
   day9,
-  day10
+  day10,
+  day12,
+  day13
 }

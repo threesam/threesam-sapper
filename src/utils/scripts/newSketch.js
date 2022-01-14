@@ -8,7 +8,7 @@ const today = `day${yesterday + 1}.js`
 const index = fs.readFileSync(path + 'index.js', "utf-8")
 console.log('index', index)
 
-fs.writeFileSync(path + today, data)
+// fs.writeFileSync(path + today, data)
 let inputs = []
 let outputs = []
 for (let i = 0; i < yesterday; i++) {
