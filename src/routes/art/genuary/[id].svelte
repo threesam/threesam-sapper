@@ -54,9 +54,6 @@
 </p>
 
 <style>
-	#sketch {
-		margin: 0 auto;
-	}
 	.badge {
 		position: absolute;
 		color: var(--textColor);
