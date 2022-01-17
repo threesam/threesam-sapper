@@ -23,8 +23,10 @@ export const sketch = (p5) => {
     p5.resizeCanvas(w, h)
   }
 
-  p5.mouseClicked = () => {
-    console.log('downloading')
-    p5.saveCanvas(`flowfield-s${seed}`, 'png')
+  p5.keyPressed = () => {
+    if (p5.key = 'p') {
+      console.log('downloading')
+      p5.saveCanvas(`fingerprintplanet-s${seed}-m${multi}`, 'png')
+    }
   }
 }
