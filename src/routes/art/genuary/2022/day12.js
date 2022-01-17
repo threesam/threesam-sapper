@@ -53,9 +53,11 @@ export const day12 = (p5) => {
     p5.resizeCanvas(w, h)
   }
 
-  p5.mouseClicked = () => {
-    console.log('downloading')
-    p5.saveCanvas(`packing-s${seed}`, 'png')
+  p5.keyPressed = () => {
+    if (p5.key === 'p') {
+      console.log('downloading')
+      p5.saveCanvas(`packing-s${seed}`, 'png')
+    }
   }
 
   class Shape {

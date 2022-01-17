@@ -3,7 +3,7 @@
 </script>
 
 <Container>
-	<h1>#Genuary</h1>
+	<h1>#Genuary2022</h1>
 	<ul>
 		<li>
 			<a href="/art/genuary/1">Day 1</a>
@@ -50,6 +50,21 @@
 		<li>
 			<a href="/art/genuary/14"
 				>Day 14</a
+			>
+		</li>
+		<li>
+			<a href="/art/genuary/15"
+				>Day 15</a
+			>
+		</li>
+		<li>
+			<a href="/art/genuary/16"
+				>Day 16</a
+			>
+		</li>
+		<li>
+			<a href="/art/genuary/17"
+				>Day 17</a
 			>
 		</li>
 	</ul>

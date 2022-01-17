@@ -70,8 +70,10 @@ export const day6 = (p5) => {
     p5.resizeCanvas(w, h)
   }
 
-  p5.mouseClicked = () => {
-    console.log('downloading')
-    p5.saveCanvas(`wheremyfriendsat-s${seed}`, 'png')
+  p5.keyPressed = () => {
+    if (p5.key === 'p') {
+      console.log('downloading')
+      p5.saveCanvas(`wheremyfriendsat-s${seed}`, 'png')
+    }
   }
 }
