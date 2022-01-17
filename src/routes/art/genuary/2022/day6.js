@@ -45,7 +45,7 @@ export const day6 = (p5) => {
 
         const mX = w > 768 ? p5.mouseX : undefined // turn off for mobile
         const mY = w > 768 ? p5.mouseY : undefined
-        const distFromCenter = p5.dist(mX ?? centerW, mY ?? centerH, x, y)
+        const distFromCenter = p5.dist(mX || centerW, mY || centerH, x, y)
         const smallSide = isLandscape ? h : w
         const spotlight = h / 2 * 0.8
 
