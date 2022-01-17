@@ -35,7 +35,7 @@ export const day17 = (p5) => {
           const shape = shapes[shapeIndex]
           const alpha = p5.map(y, start, end, 69, 255)
           const distFromCenter = p5.dist(x, y, z, 0, 0, 0)
-          const isRendered = distFromCenter > smallSide / 2 // || distFromCenter < smallSide / 3
+          const isRendered = distFromCenter > smallSide / 2
           if (!isRendered) {
             vectors.push({
               x: x + p5.random(-10, 10),
@@ -69,7 +69,6 @@ export const day17 = (p5) => {
         p5.stroke(...color)
         p5.noFill()
         p5.box(bw, bh, bd)
-        // p5.sphere(bw, dx, dy)
         p5.pop()
       })
 
@@ -84,7 +83,7 @@ export const day17 = (p5) => {
   p5.keyPressed = () => {
     if (p5.key === 'p') {
       console.log('downloading')
-      p5.saveCanvas(`fingerprintplanet-s${seed}`, 'png')
+      p5.saveCanvas(`3colors-s${seed}`, 'png')
     }
   }
 }
