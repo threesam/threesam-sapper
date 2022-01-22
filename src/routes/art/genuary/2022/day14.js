@@ -97,7 +97,7 @@ export const day14 = (p5) => {
   }
 
   p5.keyPressed = () => {
-    if (p5.key = 'p') {
+    if (p5.key === 'p') {
       console.log('downloading')
       p5.saveCanvas(`fingerprintplanet-s${seed}-m${multi}`, 'png')
     }

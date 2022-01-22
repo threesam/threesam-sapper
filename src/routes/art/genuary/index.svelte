@@ -67,5 +67,20 @@
 				>Day 17</a
 			>
 		</li>
+		<li>
+			<a href="/art/genuary/18"
+				>Day 18</a
+			>
+		</li>
+		<li>
+			<a href="/art/genuary/20"
+				>Day 20</a
+			>
+		</li>
+		<li>
+			<a href="/art/genuary/21"
+				>Day 21</a
+			>
+		</li>
 	</ul>
 </Container>

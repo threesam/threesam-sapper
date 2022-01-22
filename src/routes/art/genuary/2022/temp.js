@@ -24,7 +24,7 @@ export const sketch = (p5) => {
   }
 
   p5.keyPressed = () => {
-    if (p5.key = 'p') {
+    if (p5.key === 'p') {
       console.log('downloading')
       p5.saveCanvas(`temp-s${seed}-m${multi}`, 'png')
     }
