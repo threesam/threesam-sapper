@@ -51,7 +51,7 @@ export const day14 = (p5) => {
     const max = p5.frameCount <= vectors.length ? p5.frameCount : vectors.length
 
     vectors
-      // .slice(0, max) // space out first paints
+      .slice(0, max) // space out first paints
       .forEach((vector, index) => {
         const { x, y, color } = vector
         // angle

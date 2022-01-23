@@ -59,21 +59,21 @@ export const day17 = (p5) => {
   p5.draw = () => {
     // p5.frameRate(5)
     p5.background(getStyle('--background'))
-    if (p5.frameCount < 360 * 4) {
-      p5.rotateX(-11.25)
-      p5.rotateY(11.25 + p5.frameCount / 4)
+    // if (p5.frameCount < 360 * 4) {
+    p5.rotateX(-11.25)
+    p5.rotateY(11.25 + p5.frameCount / 4)
 
-      vectors.forEach(({ x, y, z, bw, bh, bd, color, alpha, shape, dx, dy }) => {
-        p5.push()
-        p5.translate(x, y, z)
-        p5.stroke(...color)
-        p5.noFill()
-        p5.box(bw, bh, bd)
-        p5.pop()
-      })
+    vectors.forEach(({ x, y, z, bw, bh, bd, color, alpha, shape, dx, dy }) => {
+      p5.push()
+      p5.translate(x, y, z)
+      p5.stroke(...color)
+      p5.noFill()
+      p5.box(bw, bh, bd)
+      p5.pop()
+    })
 
-      // p5.saveCanvas(`img${p5.frameCount.toString().padStart(4, '0')}`, 'png')
-    }
+    // p5.saveCanvas(`img${p5.frameCount.toString().padStart(4, '0')}`, 'png')
+    // }
   }
 
   p5.windowResized = () => {

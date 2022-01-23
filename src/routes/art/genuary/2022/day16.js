@@ -15,7 +15,7 @@ export const day16 = (p5) => {
   const start = -smallSide / 2
   const end = smallSide / 2
 
-  const increment = 9
+  const increment = 3
 
   p5.setup = () => {
     p5.createCanvas(w, h, p5.WEBGL)

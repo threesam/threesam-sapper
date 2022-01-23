@@ -17,6 +17,8 @@ import { day17 } from "./day17"
 import { day18 } from "./day18"
 import { day20 } from "./day20"
 import { day21 } from "./day21"
+import { day22 } from "./day22"
+import { day022 } from "./day022"
 
 export default {
   day1,
@@ -37,5 +39,7 @@ export default {
   day17,
   day18,
   day20,
-  day21
+  day21,
+  day022, //terrain
+  day22
 }

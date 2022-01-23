@@ -18,7 +18,7 @@ export const day4 = (p5) => {
     p5.noiseDetail(1)
     p5.angleMode(p5.DEGREES)
 
-    const density = 100
+    const density = 69
     const space = w / density
 
     for (let x = 0; x < w; x += space) {
