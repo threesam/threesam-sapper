@@ -1,6 +1,5 @@
 import { getHeaderHeightPixels, getStyle } from '../../../../utils/artStuff'
 import { format } from 'date-fns'
-import capturer from 'ccapture.js'
 
 export const day24 = (p5) => {
   p5.disableFriendlyErrors = true
@@ -31,7 +30,7 @@ export const day24 = (p5) => {
     p5.angleMode(p5.DEGREES)
     p5.rectMode(p5.CENTER)
 
-    for (let i = 0; i < 10000) {
+    for (let i = 0; i < 69420; i++) {
       vectors.push({
         x: p5.random(start, end),
         y: p5.random(start, end),
@@ -51,15 +50,15 @@ export const day24 = (p5) => {
     p5.background(0)
     p5.translate(w / 2, h / 2)
 
-    // vectors.forEach(({ x, y, width, height, r, g, b, type }) => {
-    //   p5.fill(r, g, b)
+    vectors.forEach(({ x, y, width, height, r, g, b, type }) => {
+      p5.fill(r, g, b)
 
-    //   if (type === 1) {
-    //     p5.ellipse(x, y, width, height)
-    //   } else if (type === 2) {
-    //     p5.rect(x, y, width, height)
-    //   }
-    // })
+      if (type === 1) {
+        p5.ellipse(x, y, width, height)
+      } else if (type === 2) {
+        p5.rect(x, y, width, height)
+      }
+    })
 
     // if (p5.frameCount < 10000) {
     //   p5.frameRate(5)

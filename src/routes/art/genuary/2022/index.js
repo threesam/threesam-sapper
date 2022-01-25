@@ -45,5 +45,5 @@ export default {
   day022, //terrain
   day22,
   day23,
-  // day24
+  day24
 }
