@@ -59,13 +59,6 @@ export const day24 = (p5) => {
         p5.rect(x, y, width, height)
       }
     })
-
-    // if (p5.frameCount < 10000) {
-    //   p5.frameRate(5)
-    //   p5.saveCanvas(`img${p5.frameCount.toString().padStart(4, '0')}`, 'png')
-    // } else {
-    //   p5.noLoop()
-    // }
   }
 
   p5.windowResized = () => {
