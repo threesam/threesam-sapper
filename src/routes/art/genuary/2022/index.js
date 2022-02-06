@@ -28,6 +28,8 @@ import { day29 } from "./day29"
 import { day30 } from "./day30"
 import { day31 } from "./day31"
 
+import { day32 } from "./day32"
+
 export default {
   day1,
   day2,
@@ -57,5 +59,6 @@ export default {
   day28,
   day29,
   day30,
-  day31
+  day31,
+  day32
 }
