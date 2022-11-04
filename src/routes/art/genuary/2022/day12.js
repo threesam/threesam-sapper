@@ -22,7 +22,7 @@ export const day12 = (p5) => {
 
   p5.draw = () => {
 
-    p5.background(getStyle('--background'))
+    p5.background(200, 0, 0)
 
     const x = p5.random(0, w)
     const y = p5.random(0, h)
@@ -33,7 +33,7 @@ export const day12 = (p5) => {
       if (detectEdgeCollision(s)) {
         s.draw()
       } else if (detectShapeCollision(s, circles)) {
-        if (s.r > 1) {
+        if (s.r > 13) {
           s.draw()
         }
       } else {
@@ -73,10 +73,16 @@ export const day12 = (p5) => {
     }
 
     draw() {
-      p5.stroke(this.red, this.green, this.blue, this.alpha)
-      p5.strokeWeight(this.weight)
-      p5.noFill()
-      p5.circle(this.x, this.y, this.r * 2 - this.weight)
+      if (this.alpha > 10 && this.x - w / 2 > 50) {
+        p5.stroke(0, this.alpha)
+        p5.fill(0)
+
+        const distFromCenter = p5.dist(this.x, this.y, w / 2, this.y)
+
+        p5.strokeWeight(this.weight)
+        p5.circle(this.x, this.y, this.r * 2 - this.weight)
+        p5.circle(this.x - (distFromCenter * 2), this.y, this.r * 2 - this.weight)
+      }
     }
 
     grow() {
