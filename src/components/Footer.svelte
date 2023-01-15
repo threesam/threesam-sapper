@@ -3,6 +3,9 @@
    import {onMount} from 'svelte'
    import { stores } from '@sapper/app';
 	const { page } = stores();
+	
+  const now = new Date.now();
+  const currentYear = now.getYear()
   
   onMount(()=> {
     const section = document.querySelector('footer')
@@ -63,5 +66,5 @@
 
 <footer id="contact">
   <Contact/>
-  <p>© threeSam development 2018-2021</p>
+  <p>© threeSam development 2018-{currentYear}</p>
 </footer>
